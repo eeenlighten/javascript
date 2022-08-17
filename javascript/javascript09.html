@@ -1,0 +1,1278 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트</title>
+
+    <!-- style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/prism.css">
+    
+    <!-- script -->
+    <script src="assets/js/prism.js"></script>
+    <script src="assets/js/script.js"></script>
+</head>
+
+<body>
+    <div class="top"><a href="#header">Top</a></div>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav>
+            <ul>
+                <li><a href="javascript01.html">데이터 저장하기</a></li>
+                <li><a href="javascript02.html">데이터 불러오기</a></li>
+                <li><a href="javascript03.html">데이터 실행하기</a></li>
+                <li><a href="javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="javascript05.html">문자열 객체</a></li>
+                <li><a href="javascript06.html">배열 객체</a></li>
+                <li><a href="javascript07.html">수학 객체</a></li>
+                <li><a href="javascript08.html">숫자 객체</a></li>
+                <li class="active"><a href="javascript09.html">브라우저 객체</a></li>
+                <li><a href="javascript10.html">요소 객체</a></li>
+                <li><a href="javascript11.html">이벤트 객체</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="main">
+        <div class="list">
+            <ul>
+                <li><a href="#s1_tit">01. window 객체 메서드</a></li>
+                <li><a href="#s2_tit">02. window 객체 속성</a></li>
+                <li><a href="#s3_tit">03. window 객체 메서드&속성</a></li>
+                <li><a href="#s4_tit">04. screen 객체</a></li>
+                <li><a href="#s5_tit">05. location 객체</a></li>
+                <li><a href="#s6_tit">06. navigator 객체</a></li>
+                <li><a href="#s7_tit">07. history 객체</a></li>
+            </ul>
+        </div>
+        <!-- //list -->
+        <div class="script">
+
+            <div id="s1_tit">
+                <h2>window 객체 메서드</h2>
+            </div>
+            <!-- sample1 -->
+            <div id="sample1" class="sample mt30">
+                <h3>01. 브라우저 객체 : window 객체 메서드 : window.alert() : 알림창 표시하기</h3>
+                <div class="btn">
+                    <a href="#c" class="btn1">버튼을 클릭하면 알림창이 표시됩니다.</a>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    const btn = document.querySelector("#sample1 .btn");
+
+    btn.addEventListener("click", () => {
+        alert("알림창");
+    });
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample1 -->
+
+            <!-- sample2 -->
+            <div id="sample2" class="sample">
+                <h3>02. 브라우저 객체 : window 객체 메서드 : window.confirm() : 확인창 표시하기</h3>
+                <div class="btn">
+                    <a href="#c" class="btn2">버튼을 클릭하면 확인창이 표시됩니다.</a>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    const btn = document.querySelector("#sample2 .btn");
+
+    btn.addEventListener("click", () => {
+        const conf = confirm("오늘 공부할 준비가 되었나요?");
+        document.querySelector("#sample2 .view").innerText = conf;
+    });   
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample2 -->
+
+            <!-- sample3 -->
+            <div id="sample3" class="sample">
+                <h3>MISSION</h3>
+                <div class="btn">
+                    <a href="#c" class="btn3">버튼을 클릭하면 확인창이 표시됩니다.</a>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    const btn = document.querySelector("#sample4 .btn")
+
+    btn.addEventListener("click", () => {
+        const conf = confirm("오늘 공부할 준비가 되었나요?");
+
+        if(conf){
+            document.querySelector("#sample4 .view").innerText = "네 준비되었습니다.";
+        }else{
+            document.querySelector("#sample4 .view").innerText = "아니요 아직 준비 안되었습니다.";
+        }
+    });
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample3 -->            
+
+            <!-- sample4 -->
+            <div id="sample4" class="sample">
+                <h3>03. 브라우저 객체 : window 객체 메서드 : window.prompt() : 입력창 표시하기</h3>
+                <div class="btn">
+                    <a href="#c" class="btn4">버튼을 클릭하면 입력창이 표시됩니다.</a>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    const btn = document.querySelector("#sample4 .btn");
+
+    btn.addEventListener("click", () => {
+        const prom = prompt("오늘 공부할 준비가 되었나요?");
+        document.querySelector("#sample4 .view").innerText = prom;
+    });
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample4 -->
+
+            <!-- sample5 -->
+            <div id="sample5" class="sample">
+                <h3>04. 브라우저 객체 : window 객체 메서드 : window.open() : 새로운 창 열기</h3>
+                <div class="btn">
+                    <a href="#c" class="btn5">열기</a>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+        const btn = document.querySelector("#sample5 .btn5");
+
+        btn.addEventListener("click", () => {
+            const win = window.open("", "PopupWin", "width=500,height=600");
+        });
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample5 -->                    
+            
+            <!-- sample6 -->
+            <div id="sample6" class="sample">
+                <h3>05. 브라우저 객체 : window 객체 메서드 : window.close() : 새로운 창 닫기</h3>
+                <div class="btn">
+                    <a href="#c" class="btn6" id="bt_op">열기</a>
+                </div>
+                <div class="btn">
+                    <a href="#c" class="btn99" id="bt_cl">닫기</a>
+                </div>                
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+        const btn = document.querySelector("#sample6 .btn6");
+        const btn2 = document.querySelector("#sample6 .btn7");
+       
+        window.onload = function () {
+            var bt_op = document.getElementById('bt_op');
+            var bt_cl = document.getElementById('bt_cl');
+            var win;
+        
+            bt_op.onclick = function(){
+                winOpen();
+            };
+        
+            bt_cl.onclick = function(){
+                winClose();
+            };
+           
+            function winOpen() {
+                win = window.open("", "PopupWin", "width=500,height=600");
+            };
+
+            function winClose() {
+                win.close();
+            };
+        };                   
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample6 -->             
+
+            <!-- sample7 -->
+            <div id="sample7" class="sample">
+                <h3>06. 브라우저 객체 : window 객체 메서드 : window.focus() : 페이지 포커스 설정</h3>
+                <div class="view">
+                    <p class="mt30">사용자가 폼 요소를 클릭하거나 Tab 키를 눌러 요소로 이동하면 해당 요소가 포커스(focus)가 된다. </p>
+                </div>
+                <div class="btn">
+                    <a href="#c" class="btn7">열기</a>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    const btn = document.querySelector("#sample7 .btn7");    
+            
+    btn.addEventListener("click", (pop_open) => {
+        
+        var pop_status;
+        pop_status = window.open("URL", "팝업창이름", "width=500, height=600, top=200, left=200, scrollbars=yes");
+        pop_status.focus();
+    });
+}</code></pre>
+
+                </div>
+            </div>
+            <!-- //sample7 -->     
+            
+            <!-- sample8 -->
+            <div id="sample8" class="sample">
+                <h3>07. 브라우저 객체 : window 객체 메서드 : window.blur() : 페이지 포커스 벗어났을 때 설정</h3>
+
+                <div class="btn">
+                    <p>요소가 포커스를 잃는 순간(blur), 요소가 포커스를 잃는 것은 대개 '데이터 입력이 완료되었다’는 것을 의미하기 때문에 포커싱이<br>해제되는 순간엔 데이터를 체크하거나 입력된 데이터를 저장하기 위해 서버에 요청을 보내는 등의 코드를 실행할 수 있다.</p>                    
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">
+    &lt;style&gt;
+        .invalid { border-color: red; }
+        #error { color: red }
+      &lt;/style&gt;
+      
+      이메일: &lt;input type="email" id="input"&gt;
+      
+      &lt;div id="error"&gt;&lt;/div&gt;
+      
+      &lt;script&gt;
+      input.onblur = function() {
+        if (!input.value.includes('@')) { // @ 유무를 이용해 유효한 이메일 주소가 아닌지 체크
+          input.classList.add('invalid');
+          error.innerHTML = '올바른 이메일 주소를 입력하세요.'
+        }
+      };
+      
+      input.onfocus = function() {
+        if (this.classList.contains('invalid')) {
+          // 사용자가 새로운 값을 입력하려고 하므로 에러 메시지를 지움
+          this.classList.remove('invalid');
+          error.innerHTML = "";
+        }
+      };
+      &lt;/script&gt;
+</code></pre>
+
+                </div>
+            </div>
+            <!-- //sample8 -->              
+            <div id="s2_tit">
+                <h2>window 객체 속성</h2>
+            </div>
+            <!-- sample9 -->
+            <div id="sample9" class="sample mt30">
+                <h3>08. 브라우저 속성 : Window 객체 속성 : Window.innerWidth : 브라우저 화면 가로 값</h3>
+                <div class="view">
+                    <p>브라우저 화면 가로 값 구하는 방법</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+        document.write('innerWidth = ' + window.innerWidth + 'px');
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample9 -->         
+           
+            <!-- sample10 -->
+            <div id="sample10" class="sample">
+                <h3>09. 브라우저 속성 : Window 객체 속성 : Window.innerHeight : 브라우저 화면 세로 값</h3>
+                <div class="view">
+                    <p>브라우저 화면 세로 값 구하는 방법</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+        document.write('innerHeight = ' + window.innerHeight + 'px');
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample9 -->    
+            
+            <!-- sample11 -->
+            <div id="sample11" class="sample">
+                <h3>10. 브라우저 속성 : Window 객체 속성 : Window.outerWidth : 브라우저 화면 전체 가로 값</h3>
+                <div class="view">
+                    <p>브라우저 화면 전체 가로 값 구하는 방법</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+        document.write('outerWidth = ' + window.outerWidth + 'px');
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample11 -->    
+            
+            <!-- sample12 -->
+            <div id="sample12" class="sample">
+                <h3>11. 브라우저 속성 : Window 객체 속성 : Window.OuterHeight : 브라우저 화면 전체 세로 값</h3>
+                <div class="view">
+                    <p>브라우저 화면 전체 세로 값 구하는 방법</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+        document.write('outerHeight = ' + window.outerHeight + 'px');
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample12 -->
+
+            <!-- sample13 -->
+            <div id="sample13" class="sample">
+                <h3>12. 브라우저 속성 : Window 객체 속성 : Window.screenTop : 브라우저 윗쪽 위치 값</h3>
+                <div class="view">
+                    <p>브라우저 화면 전체 세로 값 구하는 방법</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    var myWindow = window.open("", "myWin");
+    myWindow.document.write("<p>This is 'myWin'");
+    myWindow.document.write("<br>ScreenTop: " + myWindow.screenTop + "</p>");
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample13 -->   
+            
+            <!-- sample13 -->
+            <div id="sample13" class="sample">
+                <h3>13. 브라우저 속성 : Window 객체 속성 : Window.screenLeft : 브라우저 왼쪽 위치 값</h3>
+                <div class="view">
+                    <p>브라우저 화면 왼쪽 위치 값 구하는 방법</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    var myWindow = window.open("", "myWin");
+    myWindow.document.write("This is 'myWin'");
+    myWindow.document.write("<br>ScreenLeft: " + myWindow.screenLeft);
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample13 -->       
+            
+            <!-- sample14 -->
+            <div id="sample14" class="sample">
+                <h3>14. 브라우저 속성 : Window 객체 속성 : Window.screenY : 브라우저 윗쪽 위치 값</h3>
+                <div class="view">
+                    <p>브라우저 화면 윗쪽 위치 값 구하는 방법</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    var myWindow = window.open("", "myWin");
+    myWindow.document.write("This is 'myWin'");
+    myWindow.document.write("<br>ScreenX: " + myWindow.screenLeft);
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample14 -->  
+            
+            <!-- sample15 -->
+            <div id="sample15" class="sample">
+                <h3>15. 브라우저 속성 : Window 객체 속성 : Window.screenX : 브라우저 왼쪽 위치 값</h3>
+                <div class="view">
+                    <p>브라우저 화면 왼쪽 위치 값 구하는 방법</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    var myWindow = window.open("", "myWin");
+    myWindow.document.write("This is 'myWin'");
+    myWindow.document.write("<br>ScreenY: " + myWindow.screenLeft);
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample15 -->
+            <div id="s3_tit">
+                <h2>window 객체 메서드&속성</h2>
+            </div>            
+            <!-- sample16 -->
+            <div id="sample16" class="sample mt30">
+                <h3>16. 브라우저 객체 : Window 객체 메서드 : Window.moveBy() : 브라우저 위치를 상대적으로 이동</h3>
+                <div class="view">
+                    <p>지정해 준 값을 여러번 누르면 누른만큼 이동한다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;button onclick="openWin()"&gt;Open "myWindow"&lt;/button&gt;
+    &lt;button onclick="moveWin()"&gt;Move "myWindow"&lt;/button&gt;
+    
+    &lt;script&gt;
+    let myWindow;
+    
+    function openWin() {
+      myWindow = window.open("", "", "width=400, height=400");
+    }
+    
+    function moveWin() {
+      myWindow.moveBy(300, 250);
+    }
+    &lt;/script&gt;
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample16 -->             
+            
+            <!-- sample17 -->
+            <div id="sample17" class="sample">
+                <h3>17. 브라우저 객체 : Window 객체 메서드 : Window.moveTo() : 브라우저 위치를 절대값으로 이동</h3>
+                <div class="view">
+                    <p>브라우저의 위치를 정해준값으로 이동시키고 고정된다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;button onclick="openWin()"&gt;Open "myWindow"&lt;/button&gt;
+    &lt;button onclick="moveWin()"&gt;Move "myWindow"&lt;/button&gt;
+    
+    &lt;script&gt;
+    let myWindow;
+    
+    function openWin() {
+      myWindow = window.open("", "", "width=400, height=200");
+    }
+    
+    function moveWin() {
+      myWindow.moveTo(500, 100);
+    }
+    &lt;/script&gt;
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample17 -->       
+            
+            <!-- sample18 -->
+            <div id="sample18" class="sample">
+                <h3>18. 브라우저 객체 : Window 객체 메서드 : Window.resizeBy() : 브라우저 크기를 상대적으로 조절</h3>
+                <div class="view">
+                    <p>예를들어 버튼을 여러번 누르면 크기가 증가하거나 감소한다</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;button onclick="openWin()"&gt;Open "myWindow"&lt;/button&gt;
+    &lt;button onclick="moveWin()"&gt;Move "myWindow"&lt;/button&gt;
+    
+    &lt;script&gt;
+    let myWindow;
+    
+    function openWin() {
+      myWindow = window.open("", "", "width=100, height=100");
+    }
+    
+    function moveWin() {
+      myWindow.resizeBy(250, 250);
+    }
+    &lt;/script&gt;
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample18 -->       
+            
+            <!-- sample19 -->
+            <div id="sample19" class="sample">
+                <h3>19. 브라우저 객체 : Window 객체 메서드 : Window.resizeTo() : 브라우저 크기를 절대값으로 조절</h3>
+                <div class="view">
+                    <p>정해준 값만큼 브라우저 크기를 조절하는데 절대값의 크기에 맞춰진다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;button onclick="openWin()"&gt;Open "myWindow"&lt;/button&gt;
+    &lt;button onclick="moveWin()"&gt;Move "myWindow"&lt;/button&gt;
+    
+    &lt;script&gt;
+    let myWindow;
+    
+    function openWin() {
+      myWindow = window.open("", "", "width=100, height=100");
+    }
+    
+    function moveWin() {
+      myWindow.resizeTo(250, 250);
+    }
+    &lt;/script&gt;
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample19 -->         
+            
+            <!-- sample20 -->
+            <div id="sample20" class="sample">
+                <h3>20. 브라우저 객체 : Window 객체 메서드 : Window.scrollBy() : 브라우저 스크롤 위치를 상대적으로 조절</h3>
+                <div class="view">
+                    <p>버튼을 누를때마다 정해준 값만큼 스크롤을 이동시킨다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;button onclick="scrollWin()" style="position:fixed"&gt;scrollBy()&lt;button&gt;
+    
+    &lt;script&gt;
+    function scrollWin() {
+        window.scrollBy(100, 0);
+      }
+    &lt;/script&gt;
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample20 -->            
+            
+            <!-- sample21 -->
+            <div id="sample21" class="sample">
+                <h3>21. 브라우저 객체 : Window 객체 메서드 : Window.scrollTo() : 브라우저 스크롤 위치를 절대적으로 조절</h3>
+                <div class="view">
+                    <p>정해준 값만큼 스크롤을 이동시키는데 한번만 이동시키고 여러번 눌러도 실행하지 않는다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;button onclick="scrollWin()" style="position:fixed"&gt;scrollTo()&lt;button&gt;
+    
+    &lt;script&gt;
+    function scrollWin() {
+        window.scrollTo(200, 0);
+      }
+    &lt;/script&gt;
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample21 -->         
+            
+            <!-- sample22 -->
+            <div id="sample22" class="sample">
+                <h3>22. 브라우저 속성 : Window 객체 속성 : window.scrollX : 브라우저 가로 스크롤 크기</h3>
+                <div class="view">
+                    <p>보고 있는 웹의 가로(너비 값)을 보여준다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;button onclick="myFunction()" style="position:fixed"&gt;window.scrollX&lt;button&gt;
+    
+    &lt;script&gt;
+    function myFunction() {
+        window.scrollBy(100, 100);
+        alert("pageXOffset: " + window.scrollX + ", scrollY: " + window.scrollY);
+      }
+    &lt;/script&gt;
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample22 -->       
+            
+            <!-- sample23 -->
+            <div id="sample23" class="sample">
+                <h3>23. 브라우저 속성 : Window 객체 속성 : window.scrollY : 브라우저 세로 스크롤 크기</h3>
+                <div class="view">
+                    <p>보고 있는 웹의 세로(높이 값)을 보여준다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    window.scrollY
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample23 -->             
+            <div id="s4_tit">
+                <h2>screen 객체</h2>
+                <p class="mt30">사용자의 화면과 관련된 정보를 제공하는 객체이다.</p>
+            </div> 
+            <!-- sample24 -->
+            <div id="sample24" class="sample mt30">
+                <h3>24. 브라우저 객체 : screen 객체 속성 : window.screen.width : 화면의 가로 값</h3>
+                <div class="view">
+                    <p>화면 너비</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    var scr_width = screen.width;
+
+    console.log("화면 너비 : + scr_width);
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample24 -->         
+            
+            <!-- sample25 -->
+            <div id="sample25" class="sample">
+                <h3>25. 브라우저 객체 : screen 객체 속성 : window.screen.height : 화면의 세로 값</h3>
+                <div class="view">
+                    <p>화면 높이</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    var scr_height = screen.height;
+
+    console.log("화면 너비 : + scr_height);
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample25 -->    
+            
+            <!-- sample26 -->
+            <div id="sample26" class="sample">
+                <h3>26. 브라우저 객체 : screen 객체 속성 : window.screen.availWidth : 실제 이용 가능한 화면의 가로 값</h3>
+                <div class="view">
+                    <p>화면 사용 가능 너비</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    var scr_availWidth = screen.availWidth;
+
+    console.log("화면 너비 : + scr_availWidth);
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample26 -->                
+            
+            <!-- sample27 -->
+            <div id="sample27" class="sample">
+                <h3>27. 브라우저 객체 : screen 객체 속성 : window.screen.availHeight : 실제 이용 가능한 화면의 세로 값</h3>
+                <div class="view">
+                    <p>화면 사용 가능 높이</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    var scr_availHeight = screen.availHeight;
+
+    console.log("화면 너비 : + scr_availHeight);
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample27 -->    
+
+            <!-- sample28 -->
+            <div id="sample28" class="sample">
+                <h3>28. 브라우저 객체 : screen 객체 속성 : window.screen.colorDepth : 사용 가능한 색상 수</h3>
+                <div class="view">
+                    <p>표현 가능 컬러 bit</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    var scr_colorDepth = screen.colorDepth;
+
+    console.log("화면 너비 : + scr_colorDepth);
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample28 -->    
+            
+            <!-- sample29 -->
+            <div id="sample29" class="sample">
+                <h3>29. 브라우저 객체 : screen 객체 속성 : window.screen.pixelDepth : 한 픽셀당 비트 수</h3>
+                <div class="view">
+                    <p>표현 가능 픽셀 bit</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    var scr_pixelDepth = screen.pixelDepth;
+
+    console.log("화면 너비 : + scr_pixelDepth);
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample29 -->          
+            <div id="s5_tit">
+                <h2>location 객체</h2>
+                <p class="mt30">location 객체는 현재 사용중인 URL 정보를 읽어 오거나 제어를 하는 역할을 하게 된다.</p>
+            </div>
+            <!-- sample30 -->
+            <div id="sample30" class="sample mt30">
+                <h3>30. 브라우저 객체 : location 객체 메서드 : location.assign() : 현재 위치를 이동</h3>
+                <div class="view">
+                    <p>파라미터로 전달한 URL에서 리소스를 로드한다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    location.assign("이동할 페이지 주소");
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample30 -->               
+
+            <!-- sample31 -->
+            <div id="sample31" class="sample">
+                <h3>31. 브라우저 객체 : location 객체 메서드 : location.reload() : 새로 고침</h3>
+                <div class="view">
+                    <p> 리프레시 버튼과 같이 현재의 URL을 다시 로드한다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    location.reload([페이지 강제 불러오기 옵션]);
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample31 -->      
+
+            <!-- sample32 -->
+            <div id="sample32" class="sample">
+                <h3>32. 브라우저 객체 : location 객체 메서드 : location.replace() : 위치 이동</h3>
+                <div class="view">
+                    <p>location 객체에 속해있는 메소드로 페이지를 이동하는데 사용한다. <br>assign()메소드나 href속성을 교체하는 것과 replace()가 다른점은 replace()를 사용하고나면 현재의 페이지는 session History에 저장되지 않는다. <br>이 말은 back 버튼을 눌러도 다시 이 전 페이지로 이동할 수 없다는 뜻이다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    location.replace("이동할 페이지 주소");
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample32 -->               
+                       
+            <!-- sample33 -->
+            <div id="sample33" class="sample">
+                <h3>33. 브라우저 객체 : location 객체 메서드 : location.toString() : 주소 문자열 반환</h3>
+                <div class="view">
+                    <p>전체 URL을 담고 있는 USVString을 리턴한다. HTMLHyperlinkElementUtils.href 와 동일한 기능이지만 값을 수정하기 위해 사용할 수는 없다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    // &lt;a id="myAnchor" href="/en-US/docs/Location/toString"&gt; 요소가 문서에 있다고 가정을 했을때
+        const anchor = document.getElementById("myAnchor");
+        const result = anchor.toString(); // Returns: 'https://developer.mozilla.org/en-US/docs/Location/toString' // 반환 : 'https://developer.mozilla.org/en-US/docs/Location/toString'
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample33 -->                 
+            
+            <!-- sample34 -->
+            <div id="sample34" class="sample">
+                <h3>34. 브라우저 객체 : location 객체 속성 : location.href : 주소</h3>
+                <div class="view">
+                    <p>전체 URL을 담고있는 USVString을 리턴하는 stringifier이다. 값이 바뀌면 연관된 document는 새로운 페이지로 이동한다.(주로 쓰임)</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    // 문서에 &lt;a id="myAnchor" href="https://developer.mozilla.org/en-US/Location/href"&gt; 요소가 있다고 가정했을때
+        var anchor = document.getElementById("myAnchor");
+        var result = anchor.href; // 반환 : 'https://developer.mozilla.org/en-US/Location/href'
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample34 -->   
+            
+            <!-- sample35 -->
+            <div id="sample35" class="sample">
+                <h3>35. 브라우저 객체 : location 객체 속성 : location.host : 호스트 이름</h3>
+                <div class="view">
+                    <p>host를 담고 있는 USVString이다. (:와 URL의 포트번호를 포함한다.)</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    var anchor = document.createElement("a");
+
+    anchor.href = "https://developer.mozilla.org/en-US/Location.host"
+    anchor.host == "developer.mozilla.org"
+    
+    anchor.href = "https://developer.mozilla.org:443/en-US/Location.host"
+    anchor.host == "developer.mozilla.org"
+    // 443이 스키마의 기본 포트이므로 포트 번호는 포함되지 않습니다.
+    
+    anchor.href = "https://developer.mozilla.org:4097/en-US/Location.host"
+    anchor.host == "developer.mozilla.org:4097"
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample35 -->         
+            
+            <!-- sample36 -->
+            <div id="sample36" class="sample">
+                <h3>36. 브라우저 객체 : location 객체 속성 : location.hostname : 호스트 이름
+                </h3>
+                <div class="view">
+                    <p>URL의 도메인을 담고 있는 USVString이다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    var anchor = document.createElement("a");
+    anchor.href = "https://developer.mozilla.org:4097/en-US/docs/Location.hostname";
+    
+    console.log(anchor.hostname);  // developer.mozilla.org
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample36 -->       
+            
+            <!-- sample37 -->
+            <div id="sample37" class="sample">
+                <h3>37. 브라우저 객체 : location 객체 속성 : location.port : 포트 번호
+                </h3>
+                <div class="view">
+                    <p>URL의 포트 번호를 담고 있는 USVString이다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    // 문서에 &lt;a id="myAnchor" href="https://developer.mozilla.org:443/en-US/docs/Location.port"&gt; 요소가 있어야함.
+        var anchor = document.getElementByID("myAnchor");
+        var result = anchor.port; // Returns:'443'
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample37 -->
+            
+            <!-- sample38 -->
+            <div id="sample38" class="sample">
+                <h3>38. 브라우저 객체 : location 객체 속성 : location.pathname : 디렉토리 경로
+                </h3>
+                <div class="view">
+                    <p>최초 / 뒤에 나오는 path들을 담고 있는 USVString이다. (query string이나 fragment는 포함하지 않는다.)</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    // 문서에 &lt;a id="myAnchor" href="/en-US/docs/Location.pathname"&gt; 요소가 있어야합니다.
+        var anchor = document.getElementById("myAnchor");
+        var result = anchor.pathname; // Returns:'/en-US/docs/Location.pathname'
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample38 -->
+            
+            <!-- sample39 -->
+            <div id="sample39" class="sample">
+                <h3>39. 브라우저 객체 : location 객체 속성 : location.hash : 앵커이름
+                </h3>
+                <div class="view">
+                    <p># 를 포함하여 뒤에 나오는 fragment 식별자를 담은 USVString이다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;a id="myAnchor" href="/en-US/docs/Location.href#Examples"&gt;Examples&lt;/a&gt;
+    &lt;script&gt;
+      var anchor = document.getElementById("myAnchor");
+      console.log(anchor.hash); // '#Examples'반환
+    &lt;/script&gt;
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample39 -->
+            
+            <!-- sample40 -->
+            <div id="sample40" class="sample">
+                <h3>40. 브라우저 객체 : location 객체 속성 : location.search : 요청 매개변수
+                </h3>
+                <div class="view">
+                    <p>? 를 포함하여 그 뒤에 나오는 URL의 파라미터나 querystring을 담은 USVString이다. <br>모던 브라우저들은 querystring으로부터 parameter들을 쉽게 파싱할 수 있도록 URLSearchParams나 URL.searchParams등을 제공해준다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    // &lt;a id="myAnchor" href="/en-US/docs/Location.search?q=123"&gt; 요소가 문서에 있도록한다.
+        var anchor = document.getElementById("myAnchor");
+        var queryString = anchor.search; // Returns:'?q=123'
+        
+        // 추가 구문 분석 :
+        let params = new URLSearchParams(queryString);
+        let q = parseInt(params.get("q")); // 숫자 123
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample40 -->
+            
+            <!-- sample41 -->
+            <div id="sample41" class="sample">
+                <h3>41. 브라우저 객체 : location 객체 속성 : location.protocol : 프로토콜 종류
+                </h3>
+                <div class="view">
+                    <p>URL의 프로토콜 스키마를 담고 있는 USVString이다. (마지막 :를 포함한다.)</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    // 문서에 &lt;a id="myAnchor" href="https://developer.mozilla.org/en-US/Location.protocol"&gt; 요소가 있어야한다.
+        var anchor = document.getElementById("myAnchor");
+        var result = anchor.protocol; // Returns:'https:'
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample41 -->            
+            <div id="s6_tit">
+                <h2>navigator 객체</h2>
+                <p class="mt30">navigator 객체는 브라우저에 대한 정보를 가지고 있는 객체이다.</p>
+            </div>
+            <!-- sample42 -->
+            <div id="sample42" class="sample mt30">
+                <h3>42. 브라우저 객체 : navigator 객체 속성 : navigator.appCodeName : 브라우저의 코드명을 반환
+                </h3>
+                <div class="view">
+                    <p>브라우저 이름(코드 이름)을 문자열로 반환한다.(웹 표준에서 제외됨 (사용 자제))</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    document.write("브라우저 코드명 : " + navigator.appCodeName);
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample42 -->      
+            
+            <!-- sample43 -->
+            <div id="sample43" class="sample">
+                <h3>43. 브라우저 객체 : navigator 객체 속성 : navigator.appName : 브라우저의 이름을 반환
+                </h3>
+                <div class="view">
+                    <p>브라우저 공식 이름을 문자열로 반환한다.(웹 표준에서 제외됨 (사용 자제))</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    document.write("브라우저 이름정보 : " + navigator.appName);
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample43 -->      
+            
+            <!-- sample44 -->
+            <div id="sample44" class="sample">
+                <h3>44. 브라우저 객체 : navigator 객체 속성 : navigator.appVersion : 브라우저의 버전을 반환
+                </h3>
+                <div class="view">
+                    <p>브라우저 버전을 문자열로 반환한다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    document.write("브라우저 버전정보 : " + navigator.appVersion);
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample44 -->      
+            
+            <!-- sample45 -->
+            <div id="sample45" class="sample">
+                <h3>45. 브라우저 객체 : navigator 객체 속성 : navigator.cookieEnabled : 브라우저의 쿠키 사용 가능 여부를 반환
+                </h3>
+                <div class="view">
+                    <p>현재 사용 중인 브라우저의 쿠키 사용 여부</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    document.write("쿠키사용 가능 여부 : " + navigator.cookieEnabled);
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample45 -->      
+            
+            <!-- sample46 -->
+            <div id="sample46" class="sample">
+                <h3>46. 브라우저 객체 : navigator 객체 속성 : navigator.language : 브라우저에서 사용되는 언어를 반환
+                </h3>
+                <div class="view">
+                    <p>브라우저 언어를 문자열로 반환한다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    document.write("브라우저에서 사용되는 언어 : " + navigator.language);
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample46 -->                  
+
+            <!-- sample47 -->
+            <div id="sample47" class="sample">
+                <h3>47. 브라우저 객체 : navigator 객체 속성 : navigator.onLine : 브라우저가 온라인인지 여부를 반환
+                </h3>
+                <div class="view">
+                    <p>브라우저에서 온라인인지의 여부를 반환한다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    document.write("온라인인지 여부 : " + navigator.online);
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample47 -->                  
+
+
+            <!-- sample48 -->
+            <div id="sample48" class="sample">
+                <h3>48. 브라우저 객체 : navigator 객체 속성 : navigator.platform : 브라우저가 실행되는 플랫폼 정보를 반환
+                </h3>
+                <div class="view">
+                    <p>브라우저가 실행되는 플랫폼 정보를 반환한다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    document.write("플랫폼 정보: " + navigator.platform);
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample48 -->                  
+
+            
+            <!-- sample49 -->
+            <div id="sample49" class="sample">
+                <h3>49. 브라우저 객체 : navigator 객체 속성 : navigator.product : 브라우저에서 사용되는 엔진 이름을 반환
+                </h3>
+                <div class="view">
+                    <p>브라우저에서 사용되는 엔진 이름을 반환한다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    document.write("브라우저 엔진 이름 : " + navigator.product);
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample49 -->                  
+
+
+            <!-- sample50 -->
+            <div id="sample50" class="sample">
+                <h3>50. 브라우저 객체 : navigator 객체 속성 : navigator.userAgent : 브라우저와 운영체제 정보를 반환
+                </h3>
+                <div class="view">
+                    <p>브라우저와 운영체제 정보를 반환한다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    document.write("운영체제 정보 : " + navigator.userAgent);
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample50 -->     
+            <div id="s7_tit">             
+               <h2>history 객체</h2>
+               <p class="mt30">history 객체는 사용자가 방문한 사이트의 정보를 제공하는 객체이다.</p>
+            </div>
+            <!-- sample51 -->
+            <div id="sample51" class="sample mt30">
+                <h3>51. 브라우저 객체 : history 객체 속성 : history.length : URL 개수를 반환</h3>
+                <div class="view">
+                    <p>현재 브라우저창 history의 URL 개수를 반환한다.<br>현 브라우저 세션 상태에서 사용자가 방문한 페이지 개수 구할 때 유용.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;p id="hz"&gt;&lt;/p&gt;
+
+
+
+    &lt;script&gt;
+    
+    var h = history.length;
+    
+    document.getElementById("hz").innerHTML = h;
+    
+    &lt;/script&gt;
+
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample51 -->        
+            
+            <!-- sample52 -->
+            <div id="sample52" class="sample">
+                <h3>52. 브라우저 객체 : history 객체 메서드 : history.back() : 페이지 뒤로 가기</h3>
+                <div class="view">
+                    <p>이전 방문한 페이지로 이동한다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;script type="text/javascript"&gt;
+            funtion goBack(){
+                window.history.back();
+            }
+    &lt;/script&gt;
+
+    &lt;input type="button" value="앞으로 가기" onclick="goBack();" /&gt;
+    &lt;a href="goBack();"&gt;앞으로 가기&lt;/a&gt;
+    &lt;a href="#" onclick="goBack();"&gt;앞으로 가기&lt;/a&gt;    
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample52 -->     
+            
+            <!-- sample53 -->
+            <div id="sample53" class="sample">
+                <h3>53. 브라우저 객체 : history 객체 메서드 : history.forward() : 페이지 앞으로 가기</h3>
+                <div class="view">
+                    <p>페이지를 앞으로 이동시킬때 사용</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;script type="text/javascript"&gt;
+            funtion goForward(){
+                window.history.forward();
+            }
+    &lt;/script&gt;
+
+    &lt;input type="button" value="앞으로 가기" onclick="goForward();" /&gt;
+    &lt;a href="goForward();"&gt;앞으로 가기&lt;/a&gt;
+    &lt;a href="#" onclick="goForward();"&gt;앞으로 가기&lt;/a&gt;    
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample53 -->     
+            
+            <!-- sample54 -->
+            <div id="sample54" class="sample">
+                <h3>54. 브라우저 객체 : history 객체 메서드 : history.go() : 원하는 페이지로 이동</h3>
+                <div class="view">
+                    <p>history에 저장되어 있는 페이지 중 숫자 페이지로 이동한다.<br>90(숫자) -> 현재 페이지 기준으로 +1(다음 페이지) -1(이전 페이지)의 개념이다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    history.go(음수) // 이전 페이지
+    history.go(양수) // 다음 페이지
+}
+</code></pre>
+                </div>
+            </div>
+            <!-- //sample54 -->     
+
+        </div>
+        <!-- //script -->
+    </main>
+    <!-- script -->
+    <script>
+        //#id 이동하기
+        document.querySelectorAll("a[href^='#']").forEach(el => {
+            el.addEventListener("click", (event) => {
+                event.preventDefault();
+                document.querySelector(el.getAttribute("href")).scrollIntoView({
+                    behavior: "smooth"
+                })
+            });
+        });
+
+        //01
+        {
+            const btn = document.querySelector("#sample1 .btn1");
+
+            btn.addEventListener("click", () => {
+                alert("알림창");
+            });
+        }
+
+        //02. confirm()
+        {
+            const btn = document.querySelector("#sample2 .btn2");
+
+            btn.addEventListener("click", () => {
+                const conf = confirm("오늘 공부할 준비가 되었나요?");
+                document.querySelector("#sample2 .view").innerText = conf;
+            });            
+        }
+
+        //03. 만약에 true이면 -> 네 준비되었습니다.
+        //    만약에 false이면 -> 아니요 아직 준비 안되었습니다.
+        {
+            const btn = document.querySelector("#sample3 .btn3")
+
+            btn.addEventListener("click", () => {
+                const conf = confirm("오늘 공부할 준비가 되었나요?");
+
+                console.log(conf);
+
+                if(conf){
+                    document.querySelector("#sample3 .view").innerText = "네 준비되었습니다."
+                }else{
+                    document.querySelector("#sample3 .view").innerText = "아니요 아직 준비 안되었습니다."
+                }
+
+            });
+        }        
+
+        //04. prompt()
+        {
+            const btn = document.querySelector("#sample4 .btn4");
+
+            btn.addEventListener("click", () => {
+                const prom = prompt("오늘 공부할 준비가 되었나요?");
+                if(prom){
+                    document.querySelector("#sample4 .view").innerText = prom;
+                }else{
+                    document.querySelector("#sample4 .view").innerHTML = "취소누르셨습니다.";
+                }
+            });
+        }
+
+        //05. window.open();
+        {
+            const btn = document.querySelector("#sample5 .btn5");
+
+            btn.addEventListener("click", () => {
+                var win = window.open("URL", "팝업창이름", "width=500, height=600");
+            });
+        }
+
+        //06. window.close();
+        {
+            const btn = document.querySelector("#sample6 .btn6");
+            const btn2 = document.querySelector("#sample6 .btn99");
+           
+            window.onload = function () {
+                var bt_op = document.getElementById('bt_op');
+                var bt_cl = document.getElementById('bt_cl');
+                var win;
+            
+                bt_op.onclick = function(){
+                    winOpen();
+                };
+            
+                bt_cl.onclick = function(){
+                    winClose();
+                };
+               
+                function winOpen() {
+                    win = window.open("URL", "팝업창이름", "width=500, height=600");
+                };
+
+                function winClose() {
+                    win.close();
+                };
+            };                   
+        }
+
+        //07. window.focus();
+        {
+            const btn = document.querySelector("#sample7 .btn7");    
+            
+            btn.addEventListener("click", (pop_open) => {
+                
+                var pop_status;
+                pop_status = window.open("URL", "팝업창이름", "width=500, height=600, top=200, left=200, scrollbars=yes");
+                pop_status.focus();
+            });
+        }
+                       
+
+
+
+
+</script>
+    </script>
+</body>
+
+</html>

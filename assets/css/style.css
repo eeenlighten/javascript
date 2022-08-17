@@ -1,0 +1,238 @@
+/* @font-face {
+    font-family: 'NexonLv1Gothic';
+    font-weight: 300;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/NexonLv1Gothic/NexonLv1GothicLight.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/NexonLv1Gothic/NexonLv1GothicLight.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/NexonLv1Gothic/NexonLv1GothicLight.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/NexonLv1Gothic/NexonLv1GothicLight.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/NexonLv1Gothic/NexonLv1GothicLight.ttf') format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NexonLv1Gothic';
+    font-weight: 400;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/NexonLv1Gothic/NexonLv1GothicRegular.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/NexonLv1Gothic/NexonLv1GothicRegular.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/NexonLv1Gothic/NexonLv1GothicRegular.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/NexonLv1Gothic/NexonLv1GothicRegular.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/NexonLv1Gothic/NexonLv1GothicRegular.ttf') format("truetype");
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'NexonLv1Gothic';
+    font-weight: 700;
+    font-style: normal;
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/NexonLv1Gothic/NexonLv1GothicBold.eot');
+    src: url('https://cdn.jsdelivr.net/gh/webfontworld/NexonLv1Gothic/NexonLv1GothicBold.eot?#iefix') format('embedded-opentype'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/NexonLv1Gothic/NexonLv1GothicBold.woff2') format('woff2'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/NexonLv1Gothic/NexonLv1GothicBold.woff') format('woff'),
+        url('https://cdn.jsdelivr.net/gh/webfontworld/NexonLv1Gothic/NexonLv1GothicBold.ttf') format("truetype");
+    font-display: swap;
+} */
+
+/* reset */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'NexonLv1Gothic';
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+
+img {
+    width: 100%;
+    vertical-align: top;
+    /* 이미지 여백 방지 */
+}
+
+/* javascript */
+.javascript {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    border: 8px solid #000;
+    box-sizing: border-box;
+    position: relative;
+    background-color: #FED73C;
+    cursor: none;
+}
+
+.javascript::before {
+    content: '';
+    width: 100%;
+    height: calc(100vh - 16px);
+    border: 8px solid #000;
+    box-sizing: border-box;
+    position: absolute;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    border-radius: 13px;
+}
+
+.javascript h1 {
+    font-size: 8vw;
+    color: #000;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+.javascript .menu {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.javascript .menu li {
+    display: inline;
+}
+
+.javascript .menu li a {
+    border: 1px solid #000;
+    color: #000;
+    border-radius: 5px;
+    padding: 10px 30px;
+    display: inline-block;
+    margin: 5px 0;
+    transition: 0.5s;
+    font-weight: 700;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.javascript .menu li a:hover {
+    background: #000;
+    color: #FED73C;
+    transition: 0.5s;
+    cursor: none;
+}
+
+@media (max-width: 800px) {
+    .javascript h1 {
+        font-size: 55px;
+        padding: 10px 0;
+    }
+
+    .javascript .menu ul {
+        display: none;
+    }
+
+    .javascript .menu ul:nth-child(1) {
+        display: block;
+    }
+}
+
+
+/* 간격 설정 */
+.mt0 {margin-top: 0px !important;}
+.mt5 {margin-top: 5px !important;}
+.mt10 {margin-top: 10px !important;}
+.mt15 {margin-top: 15px !important;}
+.mt20 {margin-top: 20px !important;}
+.mt25 {margin-top: 25px !important;}
+.mt30 {margin-top: 30px !important;}
+.mt35 {margin-top: 35px !important;}
+.mt40 {margin-top: 40px !important;}
+.mt45 {margin-top: 45px !important;}
+.mt50 {margin-top: 50px !important;}
+.mt55 {margin-top: 55px !important;}
+.mb0 {margin-bottom: 0px !important;}
+.mb5 {margin-bottom: 5px !important;}
+.mb10 {margin-bottom: 10px !important;}
+.mb15 {margin-bottom: 15px !important;}
+.mb20 {margin-bottom: 20px !important;}
+.mb25 {margin-bottom: 25px !important;}
+.mb30 {margin-bottom: 30px !important;}
+.mb35 {margin-bottom: 35px !important;}
+.mb40 {margin-bottom: 40px !important;}
+.mb45 {margin-bottom: 45px !important;}
+.mb50 {margin-bottom: 50px !important;}
+.mb55 {margin-bottom: 55px !important;}
+
+/* info */
+.info {
+    color: #000;
+    font-family: "NEXONLv1Gothic";
+    padding: 20px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+}
+.info li {
+    list-style: none;
+    display: inline;
+}
+.info li a {
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    border: 1px dashed #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    line-height: 21px;
+    text-align: center;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.info li.active a {
+    background: #fff;
+    color: #000;
+}
+.info.left {
+    top: auto;
+    right: 0px;
+    bottom: 0px;
+}
+.info.left li {
+    display: block;
+    font-size: 14px;
+    line-height: 1.6;
+    font-weight: 300;
+}
+
+@media (max-width: 800px) {
+    .info {
+        display: none;
+    }
+}
+
+/* cursor */
+.cursor {
+    position: absolute;
+    left: 0; top: 0;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    z-index: 9999;
+    background-color: rgba(169, 68, 236, 0.5);
+    user-select: none;
+    pointer-events: none;
+    transition: transform 0.3s, opacity 0.2s;
+}
+.cursor.active {
+    opacity: .5;
+    transform: scale(0);
+}
+
+.cursor-follower {
+    position: absolute;
+    width: 30px; height: 30px;
+    background: rgba(26, 97, 250, 0.4);
+    border-radius: 50%;
+    user-select: none;
+    pointer-events: none;
+    transition: transform 0.6s ease-in-out, opacity 0.2s ease-in-out;
+}

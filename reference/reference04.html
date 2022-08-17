@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트</title>
+
+    <!-- 파비콘 -->
+    <link rel="shortcut icon" href="../assets/face/javascript.png">
+    <link rel="apple-touch-icon-precomposed" href="../assets/face/javascript.png">
+    <link rel="icon" href="../assets/face/javascript.png">
+
+    <!-- style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/prism.css">
+
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">    
+
+    <!-- script -->
+    <script src="assets/js/prism.js"></script>
+</head>
+<body>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav>
+            <ul>
+                <li><a href="reference01.html">기초 문법</a></li>
+                <li><a href="reference02.html">자료형</a></li>
+                <li><a href="reference03.html">변수</a></li>
+                <li class="active"><a href="reference04.html">상수</a></li>
+                <li><a href="reference05.html">배열</a></li>
+                <li><a href="reference06.html">객체</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main id="main">
+        <div class="doc">
+            <h2>상수</h2>
+            <p><strong>상수(constant)</strong>는 간단하게는 변수의 반댓말로 常(항상 상)자를 사용해 변하지 않고 고정된 값을 담을 때 사용한다.<br>변하지 않는 값, 이걸을 제외하면 나머지는 변수와 개념은 동일하다.</p>
+            <h2>상수를 만드는 방법: 상수 선언</h2>
+            <div class="code">
+                <h4>상수 선언 예제</h4>
+                <pre class="line-numbers"><code class="language-js"><span class="coment">const 상수이름 = 상수값;</span>
+<span class="coment">console.log(상수이름);</span>
+                </code></pre>
+            </div>
+            <!-- //code -->             
+            <p>const로 선언한 변수를 <strong>'상수(constant)'</strong>라고 부릅니다. </p>             
+            <div class="code mt30">
+                <h4>상수 선언 오류 1</h4>
+                <pre class="line-numbers"><code class="language-js"><span class="coment">const 상수이름;</span>
+<span class="coment">상수이름 = 상수값; // Uncaught SyntaxError: Missing initializer in const declaration</span>
+                </code></pre>
+            </div>
+            <!-- //code -->            
+            <p>처럼 선언 할 수 있을 것 같지만, 상수는 앞서 설명한 것 처럼 선언 이후에 값을 대입할 경우 <br><span>Uncaught SyntaxError: Missing initializer in const declaration</span> 이라는 에러를 만나게 된다. <br>따라서 상수는 반드시 <strong>선언과 동시에 값을 대입(초기화)</strong>해줘야 한다.</p>
+            <div class="code mt30">
+                <h4>상수 선언 오류 2</h4>                
+                <pre class="line-numbers"><code class="language-js"><span class="coment">const 상수이름 = 상수값1;</span>
+<span class="coment">const 상수이름 = 상수값2; // Uncaught SyntaxError: Missing initializer in const declaration</span>
+                </code></pre>
+            </div>
+            <!-- //code -->            
+            <p>당연히 재선언 불가능이다.</p>
+            <div class="code mt30">
+                <h4>상수 선언 오류 3</h4>                
+                <pre class="line-numbers"><code class="language-js"><span class="coment">let 상수이름 = 1;</span>
+<span class="coment">const 상수이름 = 1; // Uncaught SyntaxError: Missing initializer in const declaration</span>
+                </code></pre>
+            </div>
+            <!-- //code -->
+            <p>변수 이름과 겹치는 것도 불가능하다.</p>   
+            
+            <div class="code mt30">
+                <h4>상수 이름 규칙</h4>                
+                <pre class="line-numbers"><code class="language-js"><span class="coment">const PI = 3.14;</span>
+<span class="coment">const MY_NUMBER = 1234; // 대문자 + 스네이크 표기법(snake_case)</span><br>
+<span class="coment">const pi = 3.14;</span>
+<span class="coment">const myNumber = 1234; // 카멜 표기법(camel case)</span>
+                </code></pre>
+            </div>
+            <!-- //code -->
+            <p>일반적으로 상수를 대문자 + 스네이크 표기법을 사용한다. <br>하지만 const를 굳이 상수로 구분하지 않고, 암묵적으로 변수라고 함께 묶어 변수를 선언하는 방식으로<br> 이해하고 네이밍 규칙도 카멜 표기법으로 사용한다.</p>      
+            
+            <h2>상수를 사용하는 이유</h2>
+            <p>무분별한 자율은 경우에 따라 심각한 문제를 야기할 수 있고, <br>적당한 제한과 규칙은 경우에 따라 안전이나 안정을 가져다준다. <br>따라서 상수의 특성은 코드를 상대적으로 엄격하게 사용할 수 있는 장점이 생긴다.</p>
+        </div>
+        <!-- //doc  -->
+    </main>
+    <!-- //main -->
+</body>
+</html>

@@ -1,0 +1,1516 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트</title>
+ 
+    <!-- style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/prism.css">
+
+    <!-- script -->
+    <script src="assets/js/prism.js"></script>
+</head>
+<body>
+    <div class="top"><a href="#header">Top</a></div>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav>
+            <ul>
+                <li><a href="javascript01.html">데이터 저장하기</a></li>
+                <li><a href="javascript02.html">데이터 불러오기</a></li>
+                <li><a href="javascript03.html">데이터 실행하기</a></li>
+                <li><a href="javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="javascript05.html">문자열 객체</a></li>
+                <li><a href="javascript06.html">배열 객체</a></li>
+                <li><a href="javascript07.html">수학 객체</a></li>
+                <li><a href="javascript08.html">숫자 객체</a></li>
+                <li><a href="javascript09.html">브라우저 객체</a></li>
+                <li><a href="javascript10.html">요소 객체</a></li>
+                <li class="active"><a href="javascript11.html">이벤트 객체</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main id="main">
+        <div class="list">
+            <ul>
+                <li><a href="#sample1">01. 이벤트 메서드 : addEventListener('click') : 클릭했을 때</a></li>
+                <li><a href="#sample2">02. 이벤트 메서드 : addEventListener('scroll') : 스크롤 했을 때</a></li>
+                <li><a href="#sample3">03. 이벤트 메서드 : addEventListener('resize') : 브라우저 사이즈 변경 됐을 때</a></li>
+                <li><a href="#sample4">04. 이벤트 메서드 : addEventListener('selectstart') : 텍스트 선택을 시작 했을 때</a></li>
+                <li><a href="#sample5">05. 이벤트 메서드 : addEventListener('visibilitychange') : 브라우저의 탭 상태가 변경 했을 때</a></li>
+                <li><a href="#sample6">06. 이벤트 메서드 : addEventListener('DOMContentLoaded') : 로딩이 된 후</a></li>
+                <br>
+                <li><a href="#sample7">07. 이벤트 메서드 : addEventListener('mousedown') : 마우스 버튼을 눌렀을 때</a></li>
+                <li><a href="#sample8">08. 이벤트 메서드 : addEventListener('mouseup') : 마우스 버튼을 떼는 경우</a></li>
+                <li><a href="#sample9">09. 이벤트 메서드 : addEventListener('mousemove') : 마우스를 움직이는 경우</a></li>
+                <li><a href="#sample10">10. 이벤트 메서드 : addEventListener('mouseenter') : 포인터가 요소의 위치에 잇을 때</a></li>
+                <li><a href="#sample11">11. 이벤트 메서드 : addEventListener('mouseleave') : 포인터가 요소의 위치를 벗어났을 때</a></li>
+                <li><a href="#sample12">12. 이벤트 메서드 : addEventListener('mouseover') : 포인터가 요소의 위치를 벗어났을 때(이벤트 버블링)</a></li>
+                <li><a href="#sample13">13. 이벤트 메서드 : addEventListener('mouseout') : 포인터가 요소의 위치를 벗어났을 때(이벤트 버블링)</a></li>
+                <br>
+
+                <li><a href="#sample14">14. 이벤트 속성 : 마우스 : MouseEvent.clientX : 브라우저 기준 X좌표</a></li>
+                <li><a href="#sample15">15. 이벤트 속성 : 마우스 : MouseEvent.clientY : 브라우저 기준 Y좌표</a></li>
+                <li><a href="#sample16">16. 이벤트 속성 : 마우스 : MouseEvent.offsetX : 요소 기준 X좌표</a></li>
+                <li><a href="#sample17">17. 이벤트 속성 : 마우스 : MouseEvent.offsetY : 요소 기준 Y좌표</a></li>
+                <li><a href="#sample18">18. 이벤트 속성 : 마우스 : MouseEvent.pageX : 페이지 기준 X좌표</a></li>
+                <li><a href="#sample19">19. 이벤트 속성 : 마우스 : MouseEvent.pageY : 페이지 기준 Y좌표</a></li>
+                <li><a href="#sample20">20. 이벤트 속성 : 마우스 : MouseEvent.screenX : 디바이스 기준 X좌표</a></li>
+                <li><a href="#sample21">21. 이벤트 속성 : 마우스 : MouseEvent.screenY : 디바이스 기준 Y좌표</a></li>
+                
+                <br>
+                <li><a href="#sample22">22. 이벤트 메서드 : addEventListener('touchstart') : 터치가 시작 됐을 때</a></li>
+                <li><a href="#sample23">23. 이벤트 메서드 : addEventListener('touchmove') : 터치가 움직이고 있을 때</a></li>
+                <li><a href="#sample24">24. 이벤트 메서드 : addEventListener('touchend') : 터치가 끝났을 때</a></li>
+                <br>
+                <li><a href="#sample25">25. 이벤트 메서드 : addEventListener('keydown') : 키를 눌렀을 때(한번만 실행)</a></li>
+                <li><a href="#sample26">26. 이벤트 메서드 : addEventListener('keypress') : 키를 눌렀을 때(누르고 있으면 계속 실행)</a></li>
+                <li><a href="#sample27">27. 이벤트 메서드 : addEventListener('keyup') : 키를 누르고 땠을 때</a></li>
+                <br>
+                <li><a href="#sample28">28. 이벤트 속성 : 키보드 : event.key : 눌러진 키의 값</a></li>
+                <li><a href="#sample29">29. 이벤트 속성 : 키보드 : event.code : 눌러진 버튼의 코드</a></li>
+                <li><a href="#sample30">30. 이벤트 속성 : 키보드 : event.altKey : 눌러진 버튼의 코드</a></li>
+                <li><a href="#sample31">31. 이벤트 속성 : 키보드 : event.ctrlKey : 눌러진 버튼의 코드</a></li>
+                <li><a href="#sample32">32. 이벤트 속성 : 키보드 : event.shiftKey : 눌러진 버튼의 코드</a></li>
+                <li><a href="#sample33">33. 이벤트 속성 : 키보드 : event.metaKey : 눌러진 버튼의 코드</a></li>
+                <li><a href="#sample34">34. 이벤트 속성 : 키보드 : event.repeat : 눌러진 버튼의 코드</a></li>
+                <li><a href="#sample35">35. 이벤트 속성 : 키보드 : event.isComposing : 눌러진 버튼의 코드</a></li>
+                <li><a href="#sample36">36. 이벤트 속성 : 키보드 : event.keyCode : 눌러진 버튼의 코드</a></li>
+                <br>
+                <li><a href="#sample37">37. 이벤트 메서드 : addEventListener('dragstart') : 드래그 시작 했을 때</a></li>
+                <li><a href="#sample38">38. 이벤트 메서드 : addEventListener('drag') : 드래그 중인 경우</a></li>
+                <li><a href="#sample39">39. 이벤트 메서드 : addEventListener('dragend') : 드래그 끝났을 때</a></li>
+                <li><a href="#sample40">40. 이벤트 메서드 : addEventListener('dragenter') : 요소의 위치에 드래그 했을 때</a></li>
+                <li><a href="#sample41">41. 이벤트 메서드 : addEventListener('dragover') : 요소의 위치 위에 있을 때</a></li>
+                <li><a href="#sample42">42. 이벤트 메서드 : addEventListener('dragleave') : 요소의 위치 위에서 벗어 났을 때</a></li>
+                <li><a href="#sample43">43. 이벤트 메서드 : addEventListener('drop') : 요소의 위치에 드롭 했을 때</a></li>
+                <br>
+                <li><a href="#sample44">44. 이벤트 메서드 : preventDafault() : 이벤트 작동 해지</a></li>
+                <li><a href="#sample45">45. 이벤트 메서드 : dispatchDafault() : 이벤트 작동 해지</a></li>
+            </ul>
+        </div>
+        <!-- //list -->
+        <div class="script">
+
+                    <!-- sample1 -->
+                    <div id="sample1" class="sample mt30">
+                        <h3>01. 이벤트 메서드 : addEventListener('click') : 클릭했을 때</h3>
+                        <div class="view">
+                            <p>click 시 function을 실행 시키는 메소드이다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;p&gt;아래 버튼을 클릭하세요!&lt;/p&gt;
+
+            &lt;button id="myBtn"&gt;클릭&lt;/button&gt;
+
+            &lt;p id="demo"&gt;
+
+            &lt;script&gt;
+                const element = document.getElementById("myBtn");
+                element.addEventListener("click", myFunction);
+
+                function myFunction() {
+                document.getElementById("demo").innerHTML = "Hello World";
+                }
+            &lt;/script&gt;
+}</code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample1 -->
+        
+                    <!-- sample2 -->
+                    <div id="sample2" class="sample">
+                        <h3>02. 이벤트 메서드 : addEventListener('scroll') : 스크롤 했을 때</h3>
+                        <div class="view">
+                            <p>scroll 시 function을 실행 시키는 메소드이다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            window.addEventListener('scroll', function(){
+                console.log( window.scrollY ) // window.scrollY 사용하면 현재 페이지를 얼마나 위에서 부터 스크롤했는지 px 단위로 알려준다.
+              });
+}</code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample2 -->
+        
+                    <!-- sample3 -->
+                    <div id="sample3" class="sample">
+                        <h3>03. 이벤트 메서드 : addEventListener('resize') : 브라우저 사이즈 변경 됐을 때</h3>
+                        <div class="view">
+                            <p>resize 시 function을 실행 시키는 메소드이다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            window.addEventListener('resize', function(){
+                console.log('resize event!'); // 콘솔에 입력
+            });
+}</code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample3 -->            
+        
+                    <!-- sample4 -->
+                    <div id="sample4" class="sample">
+                        <h3>04. 이벤트 메서드 : addEventListener('selectstart') : 텍스트 선택을 시작 했을 때</h3>
+                        <div class="view">
+                            <p>text 선택 시 function을 실행 시키는 메소드이다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            window.addEventListener("selectstart", function(event) {
+                event.preventDefault();
+              });              
+}</code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample4 -->
+        
+                    <!-- sample5 -->
+                    <div id="sample5" class="sample">
+                        <h3>05. 이벤트 메서드 : addEventListener('visibilitychange') : 브라우저의 탭 상태가 변경 했을 때</h3>
+                        <div class="view">
+                            <p>Twitch, Youtube 같은 웹사이트는 사용자가 웹페이지를 최소화 했거나 다른 탭을 보고있는지를 체크한 후 재생중인 동영상의 화질을 낮추거나, 화면은 내보내지 않고 음성만 재생하거나, 자동 재생이 되지 않도록 막아 데이터 전송량을 줄이는 동작을 한다.<br>이 때 사용자가 웹페이지를 보고있는지를 확인하기 위한 것이 바로 visibilitychange 이벤트이다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            getEventListeners(document).visibilitychange // 콘솔에 입력
+}</code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample5 -->                    
+                    
+                    <!-- sample6 -->
+                    <div id="sample6" class="sample">
+                        <h3>06. 이벤트 메서드 : addEventListener('DOMContentLoaded') : 로딩이 된 후</h3>
+                        <div class="view">
+                            <p>문서 객체를 조작할 때 사용하는 이벤트이다.</p>
+                        </div>            
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;script&gt;
+            document.addEventListener("DOMContentLoaded", ()=> {
+                console.log("원하는 코드 적기")
+            });
+            &lt;/script&gt;
+}</code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample6 -->               
+                    
+                    <!-- sample7 -->
+                    <div id="sample7" class="sample">
+                        <h3>07. 이벤트 메서드 : addEventListener('mousedown') : 마우스 버튼을 눌렀을 때</h3>
+                        <div class="view">
+                            <p>사용자가 해당 element에서 마우스 버튼을 눌렀을 때 발생한다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+              &lt;div id="vitamin"&gt;
+                    Taking vitamins
+              &lt;/div&gt;
+              
+              &lt;script&gt;
+              document.getElementById("vitamin").addEventListener("mousedown", function () {
+              document.getElementById("vitamin").innerHTML = "Mousedown";
+              });
+              &lt;/script&gt;
+}              
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample7 -->              
+
+                    <!-- sample8 -->
+                    <div id="sample8" class="sample">
+                        <h3>08. 이벤트 메서드 : addEventListener('mouseup') : 마우스 버튼을 떼는 경우</h3>
+                        <div class="view">
+                            <p>사용자가 해당 element에서 마우스 버튼을 뗐을 때 발생한다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;style&gt;
+            #vitamin {
+              background: yellow;
+              height: 100px;
+              width: 100px;
+            }
+            &lt;/style&gt;
+
+            &lt;div id="vitamin"&gt;
+            Taking vitamins
+            &lt;/div&gt;
+            
+            &lt;script&gt;
+            document.getElementById("vitamin").addEventListener("mouseup", function () {
+            document.getElementById("vitamin").innerHTML = "Mouseup";
+            });
+            &lt;/script&gt;
+}            
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample8 -->         
+                   
+                    <!-- sample9 -->
+                    <div id="sample9" class="sample">
+                        <h3>09. 이벤트 메서드 : addEventListener('mousemove') : 마우스를 움직이는 경우</h3>
+                        <div class="view">
+                            <p>사용자가 해당 element에서 마우스를 움직였을 때 발생합니다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;style&gt;
+            #my_div {
+              background: green;
+              height: 100px;
+              width: 100px;
+            }
+            &lt;/style&gt;
+
+            &lt;div id='my_div'&gt;
+            &lt;/div&gt;
+            &lt;input id='clearbtn' type='button' value='clear'/&gt;
+            &lt;div id='result'&gt;
+            &lt;/div&gt;
+
+            &lt;script&gt;
+            const div = document.getElementById('my_div');
+            const clearbtn = document.getElementById('clearbtn');
+            const result = document.getElementById('result');
+
+            div.addEventListener('mousemove', (event) =>{
+                result.innerHTML += '&lt;div;&gt;mousemove&lt;/div&gt;'
+            });
+
+            clearbtn.addEventListener('click', (event) => {
+                result.innerHTML = ' ';
+                count = 0;
+            });
+            &lt;/script&gt;
+}            
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample9 -->    
+                    
+                    <!-- sample10 -->
+                    <div id="sample10" class="sample">
+                        <h3>10. 이벤트 메서드 : addEventListener('mouseenter') : 포인터가 요소의 위치에 있을 때</h3>
+                        <div class="view">
+                            <p>사용자가 마우스를 해당 element 바깥에서 안으로 옮겼을 때 발생한다. 버블링이 발생하지 않는다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;style&gt;
+            #my_div {
+              background: green;
+              height: 100px;
+              width: 100px;
+            }
+            &lt;/style&gt;
+
+            &lt;div id='my_div'&gt;
+            &lt;/div&gt;
+            &lt;input id='clearbtn' type='button' value='clear'/&gt;
+            &lt;div id='result'&gt;
+            &lt;/div&gt;
+
+            &lt;script&gt;
+            const div = document.getElementById('my_div');
+            const clearbtn = document.getElementById('clearbtn');
+            const result = document.getElementById('result');
+
+            div.addEventListener('mouseenter', (event) =>{
+                result.innerHTML += '&lt;div;&gt;mouseenter&lt;/div&gt;'
+            });
+
+            clearbtn.addEventListener('click', (event) => {
+                result.innerHTML = ' ';
+                count = 0;
+            });
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample10 -->    
+                    
+                    <!-- sample11 -->
+                    <div id="sample11" class="sample">
+                        <h3>11. 이벤트 메서드 : addEventListener('mouseleave') : 포인터가 요소의 위치를 벗어났을 때</h3>
+                        <div class="view">
+                            <p>사용자가 마우스를 해당 element 안에서 바깥으로 옮결을 때 발생한다. 버블링이 발생하지 않는다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;style&gt;
+            #my_div {
+              background: green;
+              height: 100px;
+              width: 100px;
+            }
+            &lt;/style&gt;
+
+            &lt;div id='my_div'&gt;
+            &lt;/div&gt;
+            &lt;input id='clearbtn' type='button' value='clear'/&gt;
+            &lt;div id='result'&gt;
+            &lt;/div&gt;
+
+            &lt;script&gt;
+            const div = document.getElementById('my_div');
+            const clearbtn = document.getElementById('clearbtn');
+            const result = document.getElementById('result');
+
+            div.addEventListener('mouseenter', (event) =>{
+                result.innerHTML += '&lt;div;&gt;mouseenter&lt;/div&gt;'
+            });
+
+            div.addEventListener('mouseleave', (event) =>{
+                result.innerHTML += '&lt;div;&gt;mouseleave&lt;/div&gt;'
+            });
+
+            clearbtn.addEventListener('click', (event) => {
+                result.innerHTML = ' ';
+                count = 0;
+            });
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample11 -->
+        
+                    <!-- sample12 -->
+                    <div id="sample12" class="sample">
+                        <h3>12. 이벤트 메서드 : addEventListener('mouseover') : 포인터가 요소의 위치를 벗어났을 때(이벤트 버블링)</h3>
+                        <div class="view">
+                            <p>사용자가 마우스를 해당 element 바깥에서 안으로 옮결을 때 발생한다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;style&gt;
+            #my_div {
+              background: green;
+              height: 100px;
+              width: 100px;
+            }
+            &lt;/style&gt;
+
+            &lt;div id='my_div'&gt;
+            &lt;/div&gt;
+            &lt;input id='clearbtn' type='button' value='clear'/&gt;
+            &lt;div id='result'&gt;
+            &lt;/div&gt;
+
+            &lt;script&gt;
+            const div = document.getElementById('my_div');
+            const clearbtn = document.getElementById('clearbtn');
+            const result = document.getElementById('result');
+
+            div.addEventListener('mouseover', (event) =>{
+                result.innerHTML += '&lt;div;&gt;mouseover&lt;/div&gt;'
+            });
+
+            div.addEventListener('mouseout', (event) =>{
+                result.innerHTML += '&lt;div;&gt;mouseout&lt;/div&gt;'
+            });
+
+            clearbtn.addEventListener('click', (event) => {
+                result.innerHTML = ' ';
+                count = 0;
+            });
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample12 -->   
+
+                    <!-- sample13 -->
+                    <div id="sample13" class="sample">
+                        <h3>13. 이벤트 메서드 : addEventListener('mouseout') : 포인터가 요소의 위치를 벗어났을 때(이벤트 버블링)</h3>
+                        <div class="view">
+                            <p>포인터가 요소의 위치를 벗어났을 때(이벤트 버블링)</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;style&gt;
+            #my_div {
+              background: green;
+              height: 100px;
+              width: 100px;
+            }
+            &lt;/style&gt;
+
+            &lt;div id='my_div'&gt;
+            &lt;/div&gt;
+            &lt;input id='clearbtn' type='button' value='clear'/&gt;
+            &lt;div id='result'&gt;
+            &lt;/div&gt;
+
+            &lt;script&gt;
+            const div = document.getElementById('my_div');
+            const clearbtn = document.getElementById('clearbtn');
+            const result = document.getElementById('result');
+
+            div.addEventListener('mouseover', (event) =>{
+                result.innerHTML += '&lt;div;&gt;mouseover&lt;/div&gt;'
+            });
+
+            div.addEventListener('mouseout', (event) =>{
+                result.innerHTML += '&lt;div;&gt;mouseout&lt;/div&gt;'
+            });
+
+            clearbtn.addEventListener('click', (event) => {
+                result.innerHTML = ' ';
+                count = 0;
+            });
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample13 -->  
+                    
+                    <!-- sample14 -->
+                    <div id="sample14" class="sample">
+                        <h3>14. 이벤트 속성 : 마우스 : MouseEvent.clientX : 브라우저 기준 X좌표</h3>
+                        <div class="view">
+                            <p>이벤트가 발생한 위치의 수평 좌표</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;p&gt;위치를 보려면 마우스를 이동하세요.&lt;/p&gt;
+            &lt;p id="screen-log"&gt;&lt;/p&gt;
+            
+            &lt;script&gt;
+            let screenLog = document.querySelector('#screen-log');
+            document.addEventListener('mousemove', logKey);
+            
+            function logKey(e) {
+              screenLog.innerText = `
+                Screen X/Y: ${e.screenX}, ${e.screenY}
+                Client X/Y: ${e.clientX}, ${e.clientY}`;
+            }
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample14 -->                        
+                    
+                    <!-- sample15 -->
+                    <div id="sample15" class="sample">
+                        <h3>15. 이벤트 속성 : 마우스 : MouseEvent.clientY : 브라우저 기준 Y좌표</h3>
+                        <div class="view">
+                            <p>이벤트가 발생한 위치의 수직 좌표</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;p&gt;위치를 보려면 마우스를 이동하세요.&lt;/p&gt;
+            &lt;p id="screen-log"&gt;&lt;/p&gt;
+            
+            &lt;script&gt;
+            let screenLog = document.querySelector('#screen-log');
+            document.addEventListener('mousemove', logKey);
+            
+            function logKey(e) {
+              screenLog.innerText = `
+                Screen X/Y: ${e.screenX}, ${e.screenY}
+                Client X/Y: ${e.clientX}, ${e.clientY}`;
+            }
+            &lt;/script&gt;
+}</code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample15 -->     
+                    
+                    <!-- sample16 -->
+                    <div id="sample16" class="sample">
+                        <h3>16. 이벤트 속성 : 마우스 : MouseEvent.offsetX : 요소 기준 X좌표</h3>
+                        <div class="view">
+                            <p>MouseEvent 인터페이스의 offsetX 읽기 전용 속성은 해당 이벤트와 대상 노드의 패딩 에지 사이에서 마우스 포인터의 X좌표에 오프셋을 제공한다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;style&gt;
+              div { border: 1px solid red; height: 300px;}
+              span {font-size: 30px;}
+            &lt;/style&gt;
+
+            &lt;p&gt;DIV 박스를 클릭하세요&lt;/p&gt;
+
+            &lt;div onclick= "myFunction(event)"&gt;&lt;/div&gt;
+
+            &lt;p&gt;DIV 요소의 왼쪽 가장자리의 상대적인 X 좌표: &lt;span id="demo"&gt;&lt;span&gt;&lt;/p&gt;
+
+            &lt;script&gt;
+            function myFunction(event){
+                var x = event.offsetX;
+                document.getElementById("demo").innerHTML = x;
+            }
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample16 -->   
+                    
+                    <!-- sample17 -->
+                    <div id="sample17" class="sample">
+                        <h3>17. 이벤트 속성 : 마우스 : MouseEvent.offsetY : 요소 기준 Y좌표</h3>
+                        <div class="view">
+                            <p>MouseEvent 인터페이스의 offsetY 읽기 전용 속성은 해당 이벤트와 대상 노드의 패딩 에지 사이에서 마우스 포인터의 Y좌표에 오프셋을 제공한다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;style&gt;
+              div { border: 1px solid red; height: 300px;}
+              span {font-size: 30px;}
+            &lt;/style&gt;
+     
+            &lt;p&gt;DIV 박스를 클릭하세요&lt;/p&gt;
+
+            &lt;div onclick= "myFunction(event)"&gt;&lt;/div&gt;
+
+            &lt;p&gt;DIV 요소의 윗쪽의 상대적인 Y 좌표: &lt;span id="demo"&gt;&lt;span&gt;&lt;/p&gt;
+
+            &lt;script&gt;
+            function myFunction(event){
+                var y = event.offsetY;
+                document.getElementById("demo").innerHTML = y;
+            }
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample17 -->      
+                    
+                    <!-- sample18 -->
+                    <div id="sample18" class="sample">
+                        <h3>18. 이벤트 속성 : 마우스 : MouseEvent.pageX : 페이지 기준 X좌표</h3>
+                        <div class="view">
+                            <p>브라우저 페이지에서의 x좌표 위치를 반환합니다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;h2 onclick= "showCoords(event)"&gt;여기를 클릭하세요&lt;/h2&gt;
+
+            &lt;p id="demo"&gt;&lt;/p&gt;
+
+            &lt;script&gt;
+            function showCoords(event) {
+                var x = event.pageX;
+                var y = event.pageY;
+                var coords = "X coords: " + x + ", Y coords: " + y;
+                document.getElementById("demo").innerHTML = coords;
+              }
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample18 -->  
+                    
+                    <!-- sample19 -->
+                    <div id="sample19" class="sample">
+                        <h3>19. 이벤트 속성 : 마우스 : MouseEvent.pageX : 페이지 기준 Y좌표</h3>
+                        <div class="view">
+                            <p>브라우저 페이지에서의 y좌표 위치를 반환합니다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;h2 onclick= "showCoords(event)"&gt;여기를 클릭하세요&lt;/h2&gt;
+
+            &lt;p id="demo"&gt;&lt;/p&gt;
+
+            &lt;script&gt;
+            function showCoords(event) {
+                var x = event.pageX;
+                var y = event.pageY;
+                var coords = "X coords: " + x + ", Y coords: " + y;
+                document.getElementById("demo").innerHTML = coords;
+              }
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample19 -->   
+                    
+                    <!-- sample20 -->
+                    <div id="sample20" class="sample">
+                        <h3>20. 이벤트 속성 : 마우스 : MouseEvent.screenX : 디바이스 기준 X좌표</h3>
+                        <div class="view">
+                            <p>전체 모니터 스크린에서의 x좌표 위치를 반환한다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;h2 onclick= "showCoords(event)"&gt;여기를 클릭하세요&lt;/h2&gt;
+
+            &lt;p id="demo"&gt;&lt;/p&gt;
+
+            &lt;script&gt;
+            function showCoords(event) {
+                var x = event.screenX;
+                var y = event.screenY;
+                var coords = "X coords: " + x + ", Y coords: " + y
+                document.getElementById("demo").innerHTML = coords;
+              }
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample20 -->      
+                    
+                    <!-- sample21 -->
+                    <div id="sample21" class="sample">
+                        <h3>21. 이벤트 속성 : 마우스 : MouseEvent.screenY : 디바이스 기준 Y좌표</h3>
+                        <div class="view">
+                            <p>전체 모니터 스크린에서의 y좌표 위치를 반환한다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;h2 onclick= "showCoords(event)"&gt;여기를 클릭하세요&lt;/h2&gt;
+
+            &lt;p id="demo"&gt;&lt;/p&gt;
+
+            &lt;script&gt;
+            function showCoords(event) {
+                var x = event.screenX;
+                var y = event.screenY;
+                var coords = "X coords: " + x + ", Y coords: " + y
+                document.getElementById("demo").innerHTML = coords;
+              }
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample21 -->                     
+          
+                    <!-- sample22 -->
+                    <div id="sample22" class="sample">
+                        <h3>22. 이벤트 메서드 : addEventListener('touchstart') : 터치가 시작 됐을 때</h3>
+                        <div class="view">
+                            <p>터치 시작을 의미한다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;p ontouchstart="myFunction()"&gt;여기를 터치하면 "Hello World"가 화면에 나타납니다. &lt;/p&gt;
+
+            &lt;p id="demo"&gt;&lt;/p&gt;
+
+            &lt;script&gt;
+            function myFunction() {
+                document.getElementById("demo").innerHTML = "Hello World";
+              }
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample22 -->   
+                    
+                    <!-- sample23 -->
+                    <div id="sample23" class="sample">
+                        <h3>23. 이벤트 메서드 : addEventListener('touchmove') : 터치가 움직이고 있을 때</h3>
+                        <div class="view">
+                            <p>터치 이동 상태를 의미한다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;p ontouchmove="myFunction()"&gt;여기를 터치하고 손가락을 이동시키면 x, y 좌표가 나타납니다.&lt;/p&gt;
+
+            &lt;p id="demo"&gt;&lt;/p&gt;
+
+            &lt;script&gt;
+            function myFunction(event) {
+                var x = event.touches[0].clientX;
+                var y = event.touches[0].clientY;
+                document.getElementById("demo").innerHTML = x + ", " + y;
+              }
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample23 -->       
+                    
+                    <!-- sample24 -->
+                    <div id="sample24" class="sample">
+                        <h3>24. 이벤트 메서드 : addEventListener('touchend') : 터치가 끝났을 때</h3>
+                        <div class="view">
+                            <p>터치 종료 상태를 의미한다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;p ontouchend="myFunction()"&gt;여기를 누른 다음 터치를 해재하면 "Heoll world"라고 쓰는 기능을 트리거 합니다.&lt;/p&gt;
+
+            &lt;p id="demo"&gt;&lt;/p&gt;
+
+            &lt;script&gt;
+            function myFunction() {
+                document.getElementById("demo").innerHTML = "Hello World";
+              }
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample24 -->           
+                    
+                    <!-- sample25 -->
+                    <div id="sample25" class="sample">
+                        <h3>25. 이벤트 메서드 : addEventListener('keydown') : 키를 눌렀을 때(한번만 실행)</h3>
+                        <div class="view">
+                            <p>사용자가 키를 누를때 발생하는 이벤트이다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;input type="text" onkeydown="myFunction()"&gt;
+
+            &lt;script&gt;
+            function myFunction() {
+                alert("input 안에서 키를 누르세요");
+              }
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample25 -->    
+                    
+                    <!-- sample26 -->
+                    <div id="sample26" class="sample">
+                        <h3>26. 이벤트 메서드 : addEventListener('keypress') : 키를 눌렀을 때(누르고 있으면 계속 실행)</h3>
+                        <div class="view">
+                            <p>keypress라는 이벤트 타입도 keydown과 같이 사용되었으나 현재는 deprecated되어 권장되지 않는다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;input type="text" onkeypress="myFunction()"&gt;
+
+            &lt;script&gt;
+            function myFunction() {
+                alert("You pressed a key inside the input field");
+              }
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample26 --> 
+                    
+                    <!-- sample27 -->
+                    <div id="sample27" class="sample">
+                        <h3>27. 이벤트 메서드 : addEventListener('keyup') : 키를 누르고 땠을 때</h3>
+                        <div class="view">
+                            <p>사용자가 누른 키보드 키가 올라올 때 실행한다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;input type="text" onkeyup="myFunction()"&gt;
+
+            &lt;script&gt;
+            function myFunction() {
+                var x = document.getElementById("fname");
+                x.value = x.value.toUpperCase();
+              } // 키를 눌렀을땐 소문자로 나오지만 키를 올렸을땐 대문자로 바꿔준다.
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample27 -->    
+                    
+                    <!-- sample28 -->
+                    <div id="sample28" class="sample">
+                        <h3>28. 이벤트 속성 : 키보드 : event.key : 눌러진 키의 값</h3>
+                        <div class="view">
+                            <p>사용자가 누른 키의 값을 반환한다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;input type="text" size="40" onkeydown="myFunction(event)"&gt;
+
+            &lt;p id='demo'&gt;&lt;/p&gt;
+
+            &lt;script&gt;
+            function myFunction(event) {
+                var x = event.key;
+                document.getElementById("demo").innerHTML = "The pressed key was: " + x;
+              }
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample28 -->      
+                    
+                    <!-- sample29 -->
+                    <div id="sample29" class="sample">
+                        <h3>29. 이벤트 속성 : 키보드 : event.code : 눌러진 버튼의 코드</h3>
+                        <div class="view">
+                            <p>키보드의 물리적 키를 나타낸다. 즉, 이 속성은 키보드 레이아웃이나 수정자 키의 상태에 의해 변경되지 않는 값을 반환한다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;input type="text" size="40" onkeypress="myFunction(event)"&gt;
+
+            &lt;p id='demo'&gt;&lt;/p&gt;
+
+            &lt;script&gt;
+            function myFunction(event) {
+                var x = event.code;
+                document.getElementById("demo").innerHTML = x;
+              } // 사용자가 누른 키의 이름을 반환 ex) a -> A
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample29 -->  
+                    
+                    <!-- sample30 -->
+                    <div id="sample30" class="sample">
+                        <h3>30. 이벤트 속성 : 키보드 : event.altKey : 눌러진 버튼의 코드</h3>
+                        <div class="view">
+                            <p>입력할때 alt키가 눌려졌는지 Boolean으로 나타남.(눌러졌으면 참)</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;input type="text" onkeydown="isKeyPressed(event)"&gt;
+
+            &lt;p id='demo'&gt;&lt;/p&gt;
+
+            &lt;script&gt;
+            function isKeyPressed(event) {
+                var x = document.getElementById("demo");
+                if (event.altKey) {
+                  x.innerHTML = "알트키가 눌러졌습니다!";
+                } else {
+                  x.innerHTML = "알트키가 눌러지지 않았습니다!";
+                }
+              }
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample30 -->       
+                    
+                    <!-- sample31 -->
+                    <div id="sample31" class="sample">
+                        <h3>31. 이벤트 속성 : 키보드 : event.ctrlKey : 눌러진 버튼의 코드</h3>
+                        <div class="view">
+                            <p>입력할때 ctrl 눌려졌는지 Boolean으로 나타남.(눌렀으면 참)</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;input type="text" onkeydown="isKeyPressed(event)"&gt;
+
+            &lt;p id='demo'&gt;&lt;/p&gt;
+
+            &lt;script&gt;
+            function isKeyPressed(event) {
+                var x = document.getElementById("demo");
+                if (event.ctrlKey) {
+                  x.innerHTML = "The CTRL key was pressed!";
+                } else {
+                  x.innerHTML = "The CTRL key was NOT pressed!";
+                }
+              }
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample31 -->   
+                    
+                    <!-- sample32 -->
+                    <div id="sample32" class="sample">
+                        <h3>32. 이벤트 속성 : 키보드 : event.shiftKey : 눌러진 버튼의 코드</h3>
+                        <div class="view">
+                            <p>입력할때 shift 눌려졌는지 Boolean으로 나타남.(눌렀으면 참)</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;input type="text" onkeydown="isKeyPressed(event)"&gt;
+
+            &lt;p id='demo'&gt;&lt;/p&gt;
+
+            &lt;script&gt;
+            function isKeyPressed(event) {
+                var x = document.getElementById("demo");
+                if (event.shiftKey) {
+                  x.innerHTML = "The SHIFT key was pressed!";
+                } else {
+                  x.innerHTML = "The SHIFT key was NOT pressed!";
+                }
+              }
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample32 -->     
+                    
+                    <!-- sample33 -->
+                    <div id="sample33" class="sample">
+                        <h3>33. 이벤트 속성 : 키보드 : event.metaKey : 눌러진 버튼의 코드</h3>
+                        <div class="view">
+                            <p>입력할때 meta 키를 눌려졌는지 Boolean으로 나타남.(눌렀으면 참)</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;input type="text" onkeydown="isKeyPressed(event)"&gt;
+
+            &lt;p id='demo'&gt;&lt;/p&gt;
+
+            &lt;script&gt;
+            function isKeyPressed(event) {
+                var x = document.getElementById("demo");
+                if (event.metaKey) {
+                  x.innerHTML = "The META key was pressed!";
+                } else {
+                  x.innerHTML = "The META key was NOT pressed!";
+                }
+              }
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample33 -->        
+                    
+                    <!-- sample34 -->
+                    <div id="sample34" class="sample">
+                        <h3>34. 이벤트 속성 : 키보드 : event.repeat : 눌러진 버튼의 코드</h3>
+                        <div class="view">
+                            <p>입력할때 repeat 키를 눌려졌는지 Boolean으로 나타남.(눌렀으면 참)</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;input type="text" onkeydown="isKeyPressed(event)"&gt;
+
+            &lt;p id='demo'&gt;&lt;/p&gt;
+
+            &lt;script&gt;
+            function isKeyPressed(event) {
+                var x = document.getElementById("demo");
+                if (event.repeatKey) {
+                  x.innerHTML = "The REPEAT key was pressed!";
+                } else {
+                  x.innerHTML = "The REPEAT key was NOT pressed!";
+                }
+              }
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample34 -->   
+                    
+                    <!-- sample35 -->
+                    <div id="sample35" class="sample">
+                        <h3>35. 이벤트 속성 : 키보드 : event.isComposing : 눌러진 버튼의 코드</h3>
+                        <div class="view">
+                            <p>input 이벤트가 compositionstart 이후 & compositionend 이전에 트리거 될 지의 여부를 나타낸다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            const kbdEvent = new KeyboardEvent("syntheticKey", false);
+            console.log(kbdEvent.isComposing); // return false
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample35 -->        
+                    
+                    <!-- sample36 -->
+                    <div id="sample36" class="sample">
+                        <h3>36. 이벤트 속성 : 키보드 : event.keyCode : 눌러진 버튼의 코드</h3>
+                        <div class="view">
+                            <p>키보드의 키를 눌렀을 때 키의 고유번호를 반환한다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;input type="text" size="40" onkeypress="myFunction(event)"&gt;
+
+            &lt;p&gt;유니코드 값은: &lt;/p&gt;
+            &lt;p id='demo'&gt;&lt;/p&gt;
+
+            &lt;script&gt;
+            function myFunction(event) {
+                let unicode= event.which;
+                document.getElementById("demo").innerHTML = unicode;
+              }
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample36 -->   
+                    
+                    <!-- sample37 -->
+                    <div id="sample37" class="sample">
+                        <h3>37. 이벤트 메서드 : addEventListener('dragstart') : 드래그 시작 했을 때</h3>
+                        <div class="view">
+                            <p>사용자가 요소나 선택한 텍스트를 드래그하기 시작할 때 발생한다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;style&gt;
+                .droptarget {
+                  float: left; 
+                  width: 100px; 
+                  height: 35px;
+                  margin: 15px;
+                  padding: 10px;
+                  border: 1px solid #aaaaaa;
+                }
+                &lt;/style&gt;
+
+            &lt;div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)"&gt;
+                &lt;p ondragstart="dragStart(event)" ondragend="dragEnd(event)" draggable="true" id="dragtarget"&gt;드래그 미!&lt;/p&gt;
+              &lt;/div&gt;
+              
+              &lt;div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)"&gt;&lt;/div&gt;            
+
+            &lt;p style="clear:both;"&gt;익스플로어8이나 사파리 5.1 초기 버전은 지원되지 않는다.&lt;/p&gt;
+            &lt;p id='demo'&gt;&lt;/p&gt;
+
+            &lt;script&gt;
+            function dragStart(event) {
+                event.dataTransfer.setData("Text", event.target.id);
+                document.getElementById("demo").innerHTML = "p 요소를 드래그 하기 시작함";
+              }
+              
+              function dragEnd(event) {
+                document.getElementById("demo").innerHTML = "p 요소의 드래그가 끝남";
+              }
+              
+              function allowDrop(event) {
+                event.preventDefault();
+              }
+              
+              function drop(event) {
+                event.preventDefault();
+                var data = event.dataTransfer.getData("Text");
+                event.target.appendChild(document.getElementById(data));
+              }
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample37 -->    
+                    
+                    <!-- sample38 -->
+                    <div id="sample38" class="sample">
+                        <h3>38. 이벤트 메서드 : addEventListener('dragstart') : 드래그 시작 했을 때</h3>
+                        <div class="view">
+                            <p>사용자가 요소나 선택한 텍스트를 드래그 중 일 때 발생한다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;style&gt;
+                .droptarget {
+                  float: left; 
+                  width: 100px; 
+                  height: 35px;
+                  margin: 15px;
+                  padding: 10px;
+                  border: 1px solid #aaaaaa;
+                }
+                &lt;/style&gt;
+
+            &lt;div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)"&gt;
+                &lt;p ondragstart="dragStart(event)" ondrag="dragging(event)" draggable="true" id="dragtarget"&gt;드래그 미!&lt;/p&gt;
+              &lt;/div&gt;
+              
+              &lt;div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)"&gt;&lt;/div&gt;            
+
+            &lt;p style="clear:both;"&gt;익스플로어8이나 사파리 5.1 초기 버전은 지원되지 않는다.&lt;/p&gt;
+            &lt;p id='demo'&gt;&lt;/p&gt;
+
+            &lt;script&gt;
+            function dragStart(event) {
+                event.dataTransfer.setData("Text", event.target.id);
+              }
+              
+              function dragging(event) {
+                document.getElementById("demo").innerHTML = "p 요소가 드래그 중입니다.";
+              }
+              
+              function allowDrop(event) {
+                event.preventDefault();
+              }
+              
+              function drop(event) {
+                event.preventDefault();
+                var data = event.dataTransfer.getData("Text");
+                event.target.appendChild(document.getElementById(data));
+                document.getElementById("demo").innerHTML = "p 요소가 떨어졌습니다.";
+              }
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample38 --> 
+                    
+                    <!-- sample39 -->
+                    <div id="sample39" class="sample">
+                        <h3>39. 이벤트 메서드 : addEventListener('dragend') : 드래그 끝났을 때</h3>
+                        <div class="view">
+                            <p>사용자가 요소나 선택한 텍스트를 드래그가 끝났을 때 발생한다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;style&gt;
+                .droptarget {
+                  float: left; 
+                  width: 100px; 
+                  height: 35px;
+                  margin: 15px;
+                  padding: 10px;
+                  border: 1px solid #aaaaaa;
+                }
+                &lt;/style&gt;
+
+            &lt;div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)"&gt;
+                &lt;p ondragstart="dragStart(event)" ondragend="dragEnd(event)" draggable="true" id="dragtarget"&gt;드래그 미!&lt;/p&gt;
+              &lt;/div&gt;
+              
+              &lt;div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)"&gt;&lt;/div&gt;            
+
+            &lt;p style="clear:both;"&gt;익스플로어8이나 사파리 5.1 초기 버전은 지원되지 않는다.&lt;/p&gt;
+            &lt;p id='demo'&gt;&lt;/p&gt;
+
+            &lt;script&gt;
+            function dragStart(event) {
+                event.dataTransfer.setData("Text", event.target.id);
+                document.getElementById("demo").innerHTML = "p 요소를 드래그 시작";
+              }
+              
+              function dragEnd(event) {
+                document.getElementById("demo").innerHTML = "p 요소의 드래그 종료";
+              }
+              
+              function allowDrop(event) {
+                event.preventDefault();
+              }
+              
+              function drop(event) {
+                event.preventDefault();
+                var data = event.dataTransfer.getData("Text");
+                event.target.appendChild(document.getElementById(data));
+              }
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample39 -->    
+                    
+                    <!-- sample40 -->
+                    <div id="sample40" class="sample">
+                        <h3>40. 이벤트 메서드 : addEventListener('dragenter') : 요소의 위치에 드래그 했을 때</h3>
+                        <div class="view">
+                            <p>드래그 가능한 요소 또는 선택된 텍스트가 유효한 드롭영역에 들어갈 때 발생한다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;style&gt;
+                .droptarget {
+                    float: left; 
+                    width: 100px; 
+                    height: 35px;
+                    margin: 15px;
+                    margin-right: 100px;
+                    padding: 10px;
+                    border: 1px solid #aaaaaa;
+                }
+                &lt;/style&gt;
+
+                &lt;div class="droptarget" ondrop="drop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)" ondragover="allowDrop(event)"&gt;
+                    &lt;p ondragstart="dragStart(event)" draggable="true" id="dragtarget"&gt;드래그 미!&lt;/p&gt;
+                  &lt;/div&gt;
+                  
+                  &lt;div class="droptarget" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)" ondrop="drop(event)" ondragover="allowDrop(event)"&gt;&lt;/div&gt;           
+
+            &lt;p style="clear:both;"&gt;익스플로어8이나 사파리 5.1 초기 버전은 지원되지 않는다.&lt;/p&gt;
+            &lt;p id='demo'&gt;&lt;/p&gt;
+
+            &lt;script&gt;
+            function dragStart(event) {
+                event.dataTransfer.setData("Text", event.target.id);
+              }
+              
+              function dragEnter(event) {
+                if ( event.target.className == "droptarget" ) {
+                  document.getElementById("demo").innerHTML = "드롭존에 들어갔습니다.";
+                  event.target.style.border = "3px dotted red";
+                }
+              }
+              
+              function dragLeave(event) {
+                if ( event.target.className == "droptarget" ) {
+                  document.getElementById("demo").innerHTML = "드롭존에 남겨졌습니다.";
+                  event.target.style.border = "";
+                }
+              }
+              
+              function allowDrop(event) {
+                event.preventDefault();
+              }
+              
+              function drop(event) {
+                event.preventDefault();
+                var data = event.dataTransfer.getData("Text");
+                event.target.appendChild(document.getElementById(data));
+              }
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample40 -->   
+                    
+                    <!-- sample41 -->
+                    <div id="sample41" class="sample">
+                        <h3>41. 이벤트 메서드 : addEventListener('dragover') : 요소의 위치 위에 있을 때</h3>
+                        <div class="view">
+                            <p>드래그하면서 마우스가 대상 객체의 위에 자리 잡고 있을 때 발생한다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;style&gt;
+                #droptarget {
+                    float: left; 
+                    width: 200px; 
+                    height: 35px;
+                    margin: 55px;
+                    margin-top: 155px;
+                    padding: 10px;
+                    border: 1px solid #aaaaaa;
+                }
+                &lt;/style&gt;
+
+                &lt;p ondragstart="dragStart(event)" draggable="true" id="dragtarget"&gt;드래그해서 사각형 안에 넣어주세요!&lt;/p&gt;
+
+                &lt;div id="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)"&gt;
+                &lt;/div&gt;           
+
+            &lt;p style="clear:both;"&gt;익스플로어8이나 사파리 5.1 초기 버전은 지원되지 않는다.&lt;/p&gt;
+            &lt;p id='demo'&gt;&lt;/p&gt;
+
+            &lt;script&gt;
+            function dragStart(event) {
+                event.dataTransfer.setData("Text", event.target.id);
+              }
+              
+              function allowDrop(event) {
+                event.preventDefault();
+                document.getElementById("demo").innerHTML = "p 요소가 드롭박스 위에 있습니다.";
+                event.target.style.border = "4px dotted green";
+              }
+              
+              function drop(event) {
+                event.preventDefault();
+                var data = event.dataTransfer.getData("Text");
+                event.target.appendChild(document.getElementById(data));
+                document.getElementById("demo").innerHTML = "p 요소가 드롭박스에 떨어졌습니다..";
+              }
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample41 -->      
+                    
+                    <!-- sample42 -->
+                    <div id="sample42" class="sample">
+                        <h3>42. 이벤트 메서드 : addEventListener('dragleave') : 요소의 위치 위에서 벗어 났을 때</h3>
+                        <div class="view">
+                            <p>드래그가 끝나서 마우스가 대상 객체의 위에서 벗어날 때 발생한다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;style&gt;
+            .droptarget {
+                float: left; 
+                width: 100px; 
+                height: 35px;
+                margin: 15px;
+                margin-right: 100px;
+                padding: 10px;
+                border: 1px solid #aaaaaa;
+              }
+                &lt;/style&gt;
+
+&lt;div class="droptarget" ondrop="drop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)" ondragover="allowDrop(event)"&gt;
+  &lt;p ondragstart="dragStart(event)" draggable="true" id="dragtarget"&gt;드래그 미!&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="droptarget" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)" ondrop="drop(event)" ondragover="allowDrop(event)"&gt;&lt;/div&gt;;         
+
+            &lt;p style="clear:both;"&gt;익스플로어8이나 사파리 5.1 초기 버전은 지원되지 않는다.&lt;/p&gt;
+            &lt;p id='demo'&gt;&lt;/p&gt;
+
+            &lt;script&gt;
+            function dragStart(event) {
+                event.dataTransfer.setData("Text", event.target.id);
+              }
+              
+              function dragEnter(event) {
+                if ( event.target.className == "droptarget" ) {
+                  document.getElementById("demo").innerHTML = "드롭존에 들어갔습니다";
+                  event.target.style.border = "3px dotted red";
+                }
+              }
+              
+              function dragLeave(event) {
+                if ( event.target.className == "droptarget" ) {
+                  document.getElementById("demo").innerHTML = "드롭존을 떠났습니다.";
+                  event.target.style.border = "";
+                }
+              }
+              
+              function allowDrop(event) {
+                event.preventDefault();
+              }
+              
+              function drop(event) {
+                event.preventDefault();
+                var data = event.dataTransfer.getData("Text");
+                event.target.appendChild(document.getElementById(data));
+              }            
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample42 -->     
+                    
+                    <!-- sample43 -->
+                    <div id="sample43" class="sample">
+                        <h3>43. 이벤트 메서드 : addEventListener('drop') : 요소의 위치에 드롭 했을 때</h3>
+                        <div class="view">
+                            <p>드래그하던 객체를 놓으면 drop 이벤트가 발생한다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+            &lt;style&gt;
+            .droptarget {
+                float: left; 
+                width: 100px; 
+                height: 35px;
+                margin: 15px;
+                padding: 10px;
+                border: 1px solid #aaaaaa;
+              }
+                &lt;/style&gt;
+
+                &lt;div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)"&gt;
+                &lt;p ondragstart="dragStart(event)" draggable="true" id="dragtarget"&gt;드래그 미!&lt;/p&gt;
+                &lt;/div&gt;
+                  
+                &lt;div class="droptarget" ondrop="drop(event)" ondragover="allowDrop(event)"&gt;&lt;/div&gt;
+
+            &lt;p style="clear:both;"&gt;익스플로어8이나 사파리 5.1 초기 버전은 지원되지 않는다.&lt;/p&gt;
+            &lt;p id='demo'&gt;&lt;/p&gt;
+
+            &lt;script&gt;
+            function dragStart(event) {
+                event.dataTransfer.setData("Text", event.target.id);
+                document.getElementById("demo").innerHTML = "p 요소를 드래그 시작했습니다.";
+              }
+              
+              function allowDrop(event) {
+                event.preventDefault();
+              }
+              
+              function drop(event) {
+                event.preventDefault();
+                var data = event.dataTransfer.getData("Text");
+                event.target.appendChild(document.getElementById(data));
+                document.getElementById("demo").innerHTML = "p 요소가 떨어졌습니다.";
+              }           
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample43 -->  
+                    
+                    <!-- sample44 -->
+                    <div id="sample44" class="sample">
+                        <h3>44. 이벤트 메서드 : preventDefault() : 이벤트 작동 해지</h3>
+                        <div class="view">
+                            <p>a 태그나 submit 태그는 누르게 되면 href 를 통해 이동하거나 , 창이 새로고침하여 실행됩니다. preventDefault 를 통해 이러한 동작을 막아줄 수 있다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+
+            &lt;a id="myAnchor" href="https://w3schools.com/"&gt;Go to W3Schools.com&lt;/a&gt;
+
+            &lt;script&gt;
+
+            document.getElementById("myAnchor").addEventListener("click", function(event){
+                event.preventDefault()
+              });   
+
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample44 -->     
+                    
+                    <!-- sample45 -->
+                    <div id="sample45" class="sample">
+                        <h3>45. 이벤트 메서드 : dispatchDefault() : 이벤트 작동 해지</h3>
+                        <div class="view">
+                            <p>이벤트 객체를 생성한 다음엔 elem.dispatchEvent(event)를 호출해 요소에 있는 이벤트를 반드시 '실행’시켜줘야 한다. (dispatch는 일을 '처리하다’라는 뜻을 가진 영어단어이다.</p>
+                        </div>
+                        <div class="code">
+        <pre class="line-numbers"><code class="language-js">{
+
+            &lt;button id="elem" onclick="alert('클릭!');"&gt;자동으로 클릭 되는 버튼&lt;/button&gt;
+
+            &lt;script&gt;
+
+            let event = new Event("click");
+            elem.dispatchEvent(event); 
+
+            &lt;/script&gt;
+}
+        </code></pre>
+                        </div>
+                    </div>
+                    <!-- //sample45 -->                      
+        </div>
+        <!-- //script -->
+    </main>
+    <!-- script -->
+    <script>
+        
+    </script>
+</body>
+</html>

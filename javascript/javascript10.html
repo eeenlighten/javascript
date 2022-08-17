@@ -1,0 +1,1340 @@
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>  
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트</title>
+
+    <!-- style -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/prism.css">
+
+    <!-- script -->
+    <script src="assets/js/prism.js"></script>
+    <script src="assets/js/script.js"></script>
+    <style>
+        .smpl a {
+            transition: all 0.3s;
+        }
+        .smpl a:hover {
+            background-color: rgb(255, 230, 230);
+        }
+    </style>
+</head>
+<body>
+    <div class="top"><a href="#header">Top</a></div>
+    <header id="header">
+        <h1><a href="../index.html">Javascript</a></h1>
+        <nav>
+            <ul>
+                <li><a href="javascript01.html">데이터 저장하기</a></li>
+                <li><a href="javascript02.html">데이터 불러오기</a></li>
+                <li><a href="javascript03.html">데이터 실행하기</a></li>
+                <li><a href="javascript04.html">데이터 제어하기</a></li>
+            </ul>
+            <ul>
+                <li><a href="javascript05.html">문자열 객체</a></li>
+                <li><a href="javascript06.html">배열 객체</a></li>
+                <li><a href="javascript07.html">수학 객체</a></li>
+                <li><a href="javascript08.html">숫자 객체</a></li>
+                <li><a href="javascript09.html">브라우저 객체</a></li>
+                <li class="active"><a href="javascript10.html">요소 객체</a></li>
+                <li><a href="javascript11.html">이벤트 객체</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main id="main">
+        <div class="list">
+            <ul>
+                <li><a href="#sample1">01. 요소 메서드 : 선택자 : Document.querySelector() : 요소 선택자</a></li>
+                <li><a href="#sample2">02. 요소 메서드 : 선택자 : Document.querySelectorAll() : 모든 요소 선택자</a></li>
+                <li><a href="#sample3">03. 요소 메서드 : 선택자 : Document.getElementById() : 아이디 요소 선택자</a></li>
+                <li><a href="#sample4">04. 요소 메서드 : 선택자 : Document.getElementByClassName() : 클래스 요소 선택자</a></li>
+                <li><a href="#sample5">05. 요소 메서드 : 요소  : Document.createElement() : 요소 만들기</a></li>
+                <br>
+                <li><a href="#sample6">06. 요소 속성 : 선택자 : Element.firstElementChild : 첫 번째 자식 요소 선택자</a></li>
+                <li><a href="#sample7">07. 요소 속성 : 선택자 : Element.lastElementChild : 마지막 번째 자식 요소 선택자</a></li>
+                <li><a href="#sample8">08. 요소 속성 : 선택자 : Element.nextElementSibling : 형제 다음 요소 선택자</a></li>
+                <li><a href="#sample9">09. 요소 속성 : 선택자 : Element.previousElementSibling : 형제 이전 요소 선택자</a></li>
+
+                <!-- <li>04. 요소 속성 : 선택자 : Node.parentNode : 부모 요소 선택자</li> -->
+                <br>
+                <li><a href="#sample10">10. 요소 속성 : Element.clientWidth : 요소의 가로값/Element.clientHeight : 요소의 세로값</a></li>
+                <li><a href="#sample11">11. 요소 속성 : Element.offsetwidth : 요소의 가로값/Element.offsetHeight : 요소의 세로값</a></li>
+                <li><a href="#sample12">12. 요소 메서드 : Element.getBoundingClientRect() : 요소의 정보값</a></li>
+                
+                <br>
+                <li><a href="#sample13">13. Node란?</a></li>                
+                <li><a href="#sample14">14. 요소 메서드 : Node.cloneNode() : 요소 복사</a></li>
+                <li><a href="#sample15">15. 요소 메서드 : Node.appendChild() : 자식 요소 추가</a></li>
+                <li><a href="#sample16">16. 요소 메서드 : Node.insertBefore() : 요소 추가</a></li>
+                <li><a href="#sample17">17. 요소 메서드 : Node.removeChild() : 자식 요소 삭제</a></li>
+                <li><a href="#sample18">18. 요소 메서드 : Node.hasChild() : 자식 요소 존재 여부 확인</a></li>
+                <li><a href="#sample19">19. 요소 메서드 : Node.replaceChild() : 자식 요소 교체</a></li>
+                <li><a href="#sample20">20. 요소 속성 : Node.parentElement : 부모 요소 교체</a></li>
+
+                <!-- <li>04. 요소 속성 : Node.textContent : 텍스트 요소</li> -->
+                <br>
+                <li><a href="#sample21">21. 요소 메서드 : Element.insertAdjacentHTML() : 요소 추가</a></li>
+                <li><a href="#sample22">22. 요소 메서드 : Element.before() : 요소 앞에 추가</a></li>
+                <li><a href="#sample23">23. 요소 메서드 : Element.after() : 요소 뒤에 추가</a></li>
+                <li><a href="#sample24">24. 요소 메서드 : Element.remove() : 요소 삭제</a></li>
+                <li><a href="#sample25">25. 요소 메서드 : Element.replaceWith() : 요소 교체</a></li>
+                
+                <br>
+                <li class="smpl"><a href="#sample26">26. 요소 메서드 : 클래스 : .classList.add() : 클래스 추가하기</a></li>
+                <li class="smpl"><a href="#sample27">27. 요소 메서드 : 클래스 : .classList.remove() : 클래스 삭제하기</a></li>
+                <li class="smpl"><a href="#sample28">28. 요소 메서드 : 클래스 : .classList.toggle() : 클래스 추가/삭제하기</a></li>
+                <li class="smpl"><a href="#sample29">29. 요소 메서드 : 클래스 : .classList.contains() : 클래스 존재 여부 확인하기</a></li>
+                <br>
+                <li><a href="#sample30">30. 요소 메서드 : 속성 : .setAttribute() : 요소 속성 설정하기</a></li>
+                <li><a href="#sample31">31. 요소 메서드 : 속성 : .getAttribute() : 요소 속성 가져오기</a></li>
+                <li><a href="#sample32">32. 요소 메서드 : 속성 : .hasAttribute() : 요소 속성 존재 여부 확인하기</a></li>
+                <br>
+                <li><a href="#sample33">33. 요소 메서드 : 텍스트 : .textContent() : 요소에 텍스트 설정하기</a></li>
+                <li><a href="#sample34">34. 요소 메서드 : 텍스트 : .innerText() : 요소에 텍스트 설정하기</a></li>
+                <li><a href="#sample35">35. 요소 메서드 : 텍스트 : .innerHTML() : 요소에 HTML 텍스트 설정하기</a></li>
+                <li><a href="#sample36">36. 요소 메서드 : 텍스트 : .outerHTML() : 요소에 HTML 텍스트 설정하기</a></li>
+                <li><a href="#sample37">37. innerHTML vs outerHTML vs textContent</a></li>
+            </ul>
+        </div>
+        <!-- //list -->
+        
+        <div class="script">
+
+            <!-- sample1 -->
+            <div id="sample1" class="sample">
+                <h3>01. 요소 메서드 : .classList.add(), .classList.remove()</h3>
+                <div class="view">
+                    <div class="view1"><img src="./assets/img/img1.jpg" alt="이미지01"></div>
+                    <div class="view2"><img src="./assets/img/img2.jpg" alt="이미지02"></div>
+                    <div class="view3"><img src="./assets/img/img3.jpg" alt="이미지03"></div>
+                    <div class="view4"><img src="./assets/img/img4.jpg" alt="이미지04"></div>
+                    <div class="view5"><img src="./assets/img/img5.jpg" alt="이미지05"></div>
+                    <div class="view6"><img src="./assets/img/img6.jpg" alt="이미지06"></div>
+                </div>
+                <div class="btn">
+                    <a href="#c" class="btn1">두번째 이미지를 클릭(selected)하면 선택됩니다.</a>
+                    <a href="#c" class="btn2">두번째 이미지를 클릭(selected)하면 해제됩니다.</a>
+                    <a href="#c" class="btn3">이 버튼을 클릭(selected)하면 모든 이미지가 선택 됩니다.</a>
+                    <a href="#c" class="btn4">이 버튼을 클릭(selected)하면 모든 이미지가 해제 됩니다.</a>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    //두번째 이미지 선택
+    document.querySelector("#sample1 .btn1").addEventListener("click", function(){
+        document.querySelector("#sample1 .view2").classList.add("selected");
+    });
+    document.querySelector("#sample1 .btn2").addEventListener("click", function(){
+        document.querySelector("#sample1 .view2").classList.remove("selected");
+    });
+
+    //모든 이미지 선택
+    document.querySelector("#sample1 .btn3").addEventListener("click", function(){
+        document.querySelectorAll("#sample1 .view > div").forEach(function(el){
+            el.classList.add("selected");
+        });
+    });
+    document.querySelector("#sample1 .btn4").addEventListener("click", function(){
+        document.querySelectorAll("#sample1 .view > div").forEach(function(el){
+            el.classList.remove("selected");
+        });
+    });
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample1 -->
+
+            <!-- sample2 -->
+            <div id="sample2" class="sample">
+                <h3>02. 요소 메서드 : .classList.toggle()</h3>
+                <div class="view">
+                    <div class="view1"><img src="./assets/img/img7.jpg" alt="이미지01"></div>
+                    <div class="view2"><img src="./assets/img/img8.jpg" alt="이미지02"></div>
+                    <div class="view3"><img src="./assets/img/img9.jpg" alt="이미지03"></div>
+                    <div class="view4"><img src="./assets/img/img10.jpg" alt="이미지04"></div>
+                    <div class="view5"><img src="./assets/img/img11.jpg" alt="이미지05"></div>
+                    <div class="view6"><img src="./assets/img/img12.jpg" alt="이미지06"></div>
+                </div>
+                <div class="btn">
+                    <a href="#c" class="btn0">리셋</a>
+                    <a href="#c" class="btn1">이 버튼을 클릭(selected)하면 두번째 이미지가 선택 또는 해제됩니다.</a>
+                    <a href="#c" class="btn2">이 버튼을 클릭(selected)하면 모든 이미지가 선택 또는 해제됩니다.</a>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    //리셋
+    document.querySelector("#sample2 .btn0").addEventListener("click", function(){
+        document.querySelectorAll("#sample2 .view > div").forEach(function(el){
+            el.classList.remove("selected");
+        });
+    });
+
+    //두번째 이미지 선택
+    document.querySelector("#sample2 .btn1").addEventListener("click", function(){
+        document.querySelector("#sample2 .view2").classList.toggle("selected");
+    });
+
+    //모든 이미지 선택
+    document.querySelector("#sample2 .btn2").addEventListener("click", function(){
+        document.querySelectorAll("#sample2 .view > div").forEach(function(el){
+            el.classList.toggle("selected");
+        });
+    });
+
+    //각각의 이미지를 클릭하면 각각의 이미지를 선택 또는 해제
+    document.querySelectorAll("#sample2 .view > div").forEach(function(el){
+        el.addEventListener("click", function(){
+            el.classList.toggle("selected");
+        });
+    });
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample2 -->
+
+            <!-- sample3 -->
+            <div id="sample3" class="sample">
+                <h3>03. 요소 메서드 : .classList.contains()</h3>
+                <div class="view">
+                    <div class="view1"><img src="./assets/img/img13.jpg" alt="이미지01"></div>
+                    <div class="view2 selected"><img src="./assets/img/img14.jpg" alt="이미지02"></div>
+                    <div class="view3"><img src="./assets/img/img15.jpg" alt="이미지03"></div>
+                    <div class="view4 selected"><img src="./assets/img/img16.jpg" alt="이미지04"></div>
+                    <div class="view5"><img src="./assets/img/img17.jpg" alt="이미지05"></div>
+                    <div class="view6 selected"><img src="./assets/img/img18.jpg" alt="이미지06"></div>
+                </div>
+                <div class="btn">
+                    <a href="#c" class="btn0">리셋</a>
+                    <a href="#c" class="btn1">이 버튼을 클릭(selected)하면 선택된 클래스(selectec)를 찾은 후 클래스를 삭제합니다.</a>
+                    <a href="#c" class="btn2">이 버튼을 클릭(selected)하면 선택된 클래스(selectec)를 찾은 후 파란색으로 바뀝니다.</a>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    //리셋
+    document.querySelector("#sample3 .btn0").addEventListener("click", function(){
+        document.querySelector("#sample3 .view2").classList.add("selected");
+        document.querySelector("#sample3 .view2").classList.remove("blue");
+        document.querySelector("#sample3 .view4").classList.add("selected");
+        document.querySelector("#sample3 .view4").classList.remove("blue");
+        document.querySelector("#sample3 .view6").classList.add("selected");
+        document.querySelector("#sample3 .view6").classList.remove("blue");
+    });
+
+    //이 버튼을 클릭(selected)하면 선택된 클래스(selected)를 찾은 후 클래스를 삭제합니다.
+    document.querySelector("#sample3 .btn1").addEventListener("click", function(){
+        document.querySelectorAll("#sample3 .view > div").forEach(function(el){
+            if(el.classList.contains("selected")){
+                el.classList.remove("selected");
+                if(el.classList.contains("blue")){
+                    el.classList.remove("blue");
+                }
+            }
+        });
+    });
+
+    //이 버튼을 클릭(selected)하면 선택된 클래스(selected)를 찾은 후 색을 파란색으로 나오게 하세요!
+    document.querySelector("#sample3 .btn2").addEventListener("click", function(){
+        document.querySelectorAll("#sample3 .view > div").forEach(function(el){
+            if(el.classList.contains("selected")){
+                el.classList.add("blue");
+            }
+        });
+    });
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample3 -->
+
+            <!-- sample4 -->
+            <div id="sample4" class="sample">
+                <h3>04. 요소 메서드 : 선택자 : Document.getElementByClassName() : 클래스 요소 선택자</h3>
+                <div class="view">
+                    <p>클래스 요소 선택자</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;h1&gt;The Document Object&lt;/h1&gt;
+    &lt;h2&gt;The getElementsByClassName() Method&lt;/h2&gt;
+    
+    &lt;p&gt;Change the text of the first element with class="example":&lt;/p&gt;
+    
+    &lt;div class="example"&gt;Element1&lt;/div&gt;
+    &lt;div class="example"&gt;Element2&lt;/div&gt;
+    
+    &lt;script&gt;
+    const collection = 
+    document.getElementsByClassName("example")
+    collection[0].innerHTML = "Hello World!";
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample4 -->      
+            
+            <!-- sample5 -->
+            <div id="sample5" class="sample">
+                <h3>05. 요소 메서드 : 요소 : Document.createElement() : 요소 만들기</h3>
+                <div class="view">
+                    <p>요소 만들기</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;h1&gt;The Document Object&lt;/h1&gt;
+    &lt;h2&gt;The getElementsByClassName() Method&lt;/h2&gt;
+    
+    &lt;p&gt;Create a p element with some text:&lt;/p&gt;
+    
+    &lt;script&gt;
+    //Create element;
+    const para = document.createElement('p');
+    para.innerText = "This is a paragraph.";
+
+    //Append to body:
+    document.body.appendChild(para);
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample5 -->        
+            
+            <!-- sample6 -->
+            <div id="sample6" class="sample">
+                <h3>06. 요소 속성 : 선택자 : Element.firstElementChild : 첫 번째 자식 요소 선택자</h3>
+                <div class="view">
+                    <p>첫 번째 자식 요소 선택자</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;ul id = "list"&gt;
+        &lt;li&gt;First (1)&lt;/li&gt;
+        &lt;li&gt;Second (2)&lt;/li&gt;
+        &lt;li&gt;Third (3)&lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;script&gt;
+    const list = document.getElementById('list');
+    console.log(list.firstElementChild.textContent);
+    //logs "First (1)"
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample6 -->     
+            
+            <!-- sample7 -->
+            <div id="sample7" class="sample">
+                <h3>07. 요소 속성 : 선택자 : Element.lastElementChild : 마지막 번째 자식 요소 선택자</h3>
+                <div class="view">
+                    <p>마지막 번째 자식 요소 선택자</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;h1&gt;The Element Object&lt;/h1&gt;
+    &lt;h2&gt;The lastElementChild Property&lt;/h2&gt;
+    
+    &lt;ul id="myList"&gt;
+    &lt;li&gt;Coffee&lt;/li&gt;
+    &lt;li&gt;Tea&lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;p&gt;The HTML content of "myLIST"s last child element is:
+    &lt;/p&gt;
+    &lt;p id="demo"&gt;&lt;/p&gt;
+    
+    &lt;script&gt;
+    const element = document.getElementById("myList")
+    document.getElementById("demo").innerHTML = 
+    element.lastElementChild.innerHTML;
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample7 -->       
+            
+            <!-- sample8 -->
+            <div id="sample8" class="sample">
+                <h3>08. 요소 속성 : 선택자 : Element.nextElementSibling : 형제 다음 요소 선택자</h3>
+                <div class="view">
+                    <p>형제 다음 요소 선택자</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;h1&gt;The Element Object&lt;/h1&gt;
+    &lt;h2&gt;The nextElementSibling Property&lt;/h2&gt;
+    
+    &lt;ul&gt;
+        &lt;li id="item1"&gt;Coffee (first item)&lt;/li&gt;
+        &lt;li id="item2"&gt;Tea (second item)&lt;/li&gt;
+    &lt;/ul&gt;
+      
+    &lt;p&gt;The HTML content of the next sibling of the first list item has the text:&lt;/p&gt;
+    &lt;p id="demo"&gt;&lt;/p&gt;
+    
+    &lt;script&gt;
+    let text = document.getElementById("item1").nextElementSibling.innerHTML; 
+    document.getElementById("demo").innerHTML = text;
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample8 -->     
+            
+            <!-- sample9 -->
+            <div id="sample9" class="sample">
+                <h3>09. 요소 속성 : 선택자 : Element.previousElementSibling : 형제 이전 요소 선택자</h3>
+                <div class="view">
+                    <p>형제 이전 요소 선택자</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;h1&gt;The Element Object&lt;/h1&gt;
+    &lt;h2&gt;The previousElementSibling Property&lt;/h2&gt;
+    
+    &lt;ul&gt;
+        &lt;li id="item1"&gt;Coffee (first item)&lt;/li&gt;
+        &lt;li id="item2"&gt;Tea (second item)&lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;p&gt;The previous sibling of the second list item has the text:
+    &lt;/p&gt;
+    &lt;p id="demo"&gt;&lt;/p&gt;
+    
+    &lt;script&gt;
+    let text = document.getElementById('item2').previousElementSibling.innerHTML;
+    document.getElementById('demo').innerHTML = text;
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample9 -->      
+            
+            <!-- sample10 -->
+           <div id="sample10" class="sample">
+                <h3>10. 요소 속성 : Element.clientWidth/Element.clientHeight : 요소의 가로값/요소의 세로값</h3>
+                <div class="view">
+                <div class="view18"><img src="./assets/img/img19.png" alt="이미지19"></div>                
+                <p class="mt30">인라인 요소나 css 상에 존재하지 않는 요소에 대해서는 0을 나타내고 그렇지 않다면 엘리먼트의 내부 너비를 픽셀로 나타낸다.실제로 보여지고 있는 컨텐츠의 공간을 확인하고 싶다면 이 속성을 사용하면 된다.</p>
+                </div>
+            </div>
+            <!-- //sample10 -->          
+        
+            <!-- sample11 -->
+            <div id="sample11" class="sample">
+                <h3>11. 요소 속성 : Element.offsetwidth/Element.offsetHeight : 요소의 가로값/요소의 세로값</h3>
+                <div class="view">
+                <div class="view18"><img src="./assets/img/img20.png" alt="이미지20"></div>                
+                <p class="mt30">요소의 가로값/세로값, 엘리먼트의 패딩과 보더, 스크롤바의 사이즈를 포함한 값을 리턴.</p>
+                </div>
+            </div>
+            <!-- //sample11 -->         
+            
+            <!-- sample12 -->
+            <div id="sample12" class="sample">
+                <h3>012. 요소 메서드 : Element.getBoundingClientRect() : 요소의 정보값</h3>
+                <div class="view">
+                    <p>엘리먼트 크기와 뷰포트에 상대적인 위치 정보를 제공하는 DOMRect 객체를 반환한다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;div onscroll="myFunction()" style="height:200px; width:300px; overflow:auto;"&gt;
+        &lt;div id="myDiv" style="width:250px; height:150px; padding:16px; border:1px solid black;"&gt;
+        Scroll to display the bounding client rect of the element with the border.
+        &lt;/div&gt;
+        &lt;div style="width:1000px; height:1000px;"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;p id="demo"&gt;&lt;/p&gt;
+    
+    &lt;script&gt;
+    function myFunction(){
+        const element = document.getElementById("myDiv");
+        const rect = element.getBoundingClientRect();
+        
+        
+        document.getElementById("demo").innerHTML = "LEFT: " + rect.left.toFixed() +
+        ",Top: " + rect.top.toFixed() + ", Width: " + rect.width + ", Height:" +
+        rect.height; 
+        }
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample12 -->          
+            
+            <!-- sample13 -->
+            <div id="sample13" class="sample">
+                <h3>013. Node 란?</h3>
+                <div class="view">
+                    <p>HTML DOM은 노드(node)라고 불리는 계층적 단위에 정보를 저장한다.<br>HTML DOM은 이러한 노드를 정의하고, 그들 사이의 관계를 설명해 주는 역할을 한다.</p>
+                </div>
+            </div>
+            <!-- //sample13 -->       
+            
+            <!-- sample14 -->
+            <div id="sample14" class="sample">
+                <h3>014. 요소 메서드 : Node.cloneNode() : 요소 복사</h3>
+                <div class="view">
+                    <p>이 메서드를 호출한 Node 의 복제된 Node를 반환한다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;h1&gt;The Element Object&lt;/h1&gt;
+    &lt;h2&gt;The cloneNode() Method&lt;/h2&gt;
+    
+    &lt;button onclick="myFunction()"&gt;Copy&lt;/button&gt;
+    &lt;p&gt;Click "Copy" to copy an item from one list to another.&lt;/p&gt;
+    
+    &lt;ul id="myList1"&gt;&lt;li&gt;Coffee&lt;/li&gt;&lt;li&gt;Tea&lt;/li&gt;&lt;/ul&gt;
+    &lt;ul id="myList2"&gt;&lt;li&gt;Water&lt;/li&gt;&lt;li&gt;Milk&lt;/li&gt;&lt;/ul&gt;
+
+    &lt;If you change the beep parameter to false, only an empty LI element will be cloned.&gt;&lt;/p&gt;
+    
+    &lt;script&gt;
+    function myFunction() {
+        const node = document.getElementById("myList2").lastChild;
+        const clone = node.cloneNode(true);
+        document.getElementById("myList1").appendChild(clone);
+      }
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample14 -->   
+            
+            <!-- sample15 -->
+            <div id="sample15" class="sample">
+                <h3>015. 요소 메서드 : Node.appendChild() : 자식 요소 추가</h3>
+                <div class="view">
+                    <p>한 노드를 특정 부모 노드의 자식 노드 리스트 중 마지막 자식으로 붙인다.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;h1&gt;The Element Object&lt;/h1&gt;
+    &lt;h2&gt;The appendChild() Method&lt;/h2&gt;
+
+    &lt;ul id="myList"&gt;
+        &lt;li&gt;Coffee&lt;/li&gt;
+        &lt;li&gt;Tea&lt;/li&gt;
+    &lt;/ul&gt;
+
+&lt;p&gt;Click "Append" to append an item to the end of the list:&lt;/p&gt;
+
+&lt;button onclick="myFunction()"&gt;Append&lt;/button&gt;
+    
+    &lt;script&gt;
+    function myFunction(){
+        //Create an "li" node:
+        const node = document.createElement("li");
+        
+        //Create a text node:
+        const textnode = document.createTextNode("Water");
+        
+        //Append the "li" node to the list:
+        document.getElementById("myList").appendChild(node);
+        }
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample15 -->  
+            
+            <!-- sample16 -->
+            <div id="sample16" class="sample">
+                <h3>016. 요소 메서드 : Node.insertBefore() : 요소 추가</h3>
+                <div class="view">
+                    <p>참조된 노드 앞에 특정 부모 노드의 자식 노드를 삽입.</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;h1&gt;The Element Object&lt;/h1&gt;
+    &lt;h2&gt;The insertBefore() Method&lt;/h2&gt;
+
+    &lt;ul id="myList"&gt;
+        &lt;li&gt;Coffee&lt;/li&gt;
+        &lt;li&gt;Tea&lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;script&gt;
+    //Create a "li" element:
+    const newNode = document.createElement("li");
+    
+    //Create a text node:
+    const textNode = document.createTextNode("Water");
+    
+    //Append text node to "li" element:
+    newNode.appendChild(textNode);
+    
+    //Insert before existing child:
+    const list = document.getElementById("myList");
+    list.insertBefore(newNode, list.children[0]);
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample16 -->    
+            
+            <!-- sample17 -->
+            <div id="sample17" class="sample">
+                <h3>017. 요소 메서드 : Node.removeChild() : 자식 요소 삭제</h3>
+                <div class="view">
+                    <p>자식 요소 삭제</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;h1&gt;The Element Object&lt;/h1&gt;
+    &lt;h2&gt;The Node.removeChild() Method&lt;/h2&gt;
+
+    &lt;p&gt;Click "Remove" to remove the first item from the list: &lt;/p&gt;
+        &lt;button onclick="myFunction()"&gt;Remove&lt;/button&gt;    
+
+    &lt;ul id="myList"&gt;
+        &lt;li&gt;Coffee&lt;/li&gt;
+        &lt;li&gt;Tea&lt;/li&gt;
+        &lt;li&gt;Milk&lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;script&gt;
+    function myFunction(){
+        cont list = document.getElementById("myList");
+        list.removeChild(list.firstElementChild);
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample17 -->    
+            
+            <!-- sample18 -->
+            <div id="sample18" class="sample">
+                <h3>018. 요소 메서드 : Node.hasChild() : 자식 요소 존재 여부 확인</h3>
+                <div class="view">
+                    <p>자식 요소 존재 여부 확인</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;h1&gt;The Element Object&lt;/h1&gt;
+    &lt;h2&gt;The hasChildNodes() Method&lt;/h2&gt;
+    
+    &lt;ul id="myList"&gt;
+      &lt;li&gt;Coffee&lt;/li&gt;
+      &lt;li&gt;Tea&lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;p&gt;Does the list above have any child nodes?&lt;/p&gt;
+    &lt;p id="demo"&gt;&lt;/p&gt;
+    
+    &lt;p&gt;If you remove the child nodes of the list the result will be false.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Whitespace between nodes is considered text nodes.
+    If you leave any white space or line feeds, the list still has child nodes.&lt;/p&gt;
+    
+    &lt;script&gt;
+    let answer = document.getElementByID("myList").hasChildNodes();
+    document.getElementById("demo").innerHTML = answer;
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample18 -->            
+
+            <!-- sample19 -->
+            <div id="sample19" class="sample">
+                <h3>019. 요소 메서드 : Node.replaceChild() : 자식 요소 교체</h3>
+                <div class="view">
+                    <p>자식 요소 교체</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;h1&gt;The Element Object&lt;/h1&gt;
+    &lt;h2&gt;The replaceChild() Method&lt;/h2&gt;
+    
+    &lt;ul id="myList"&gt;
+      &lt;li&gt;Coffee&lt;/li&gt;
+      &lt;li&gt;Tea&lt;/li&gt;
+      &lt;li&gt;Milk&lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;p&gt;Click "Replace" to replace the first item in the the list.&lt;/p&gt;
+    
+    &lt;button onclick="myFunction()"&gt;"Replace"&lt;/button&gt;
+    
+    &lt;p&gt;This example replaces the Text node "Coffee" with a Text node "Water". Replacing the entire li element is also an alternative.&lt;/p&gt;
+    
+    &lt;script&gt;
+    function myFunction(){
+        //Select first child element:
+        const element = document.getElementById("myList").children[0];
+        
+        //Create a new text node:
+        const newNode = document.createTextNOde("water");
+        
+        //Replace the text node:
+        element.replaceChild(newNode, element.childNodes[0]);
+        
+        }
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample19 -->     
+            
+            <!-- sample20 -->
+            <div id="sample20" class="sample">
+                <h3>020. 요소 속성 : Node.parentElement : 부모 요소 교체</h3>
+                <div class="view">
+                    <p>부모 요소 교체</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;p&gt;Example list:&lt;/p&gt;
+
+    &lt;ul&gt;
+      &lt;li id="myLI"&gt;Coffee&lt;/li&gt;
+      &lt;li&gt;Tea&lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;p&gt;Click the button to get the node name of the parent element of the li element
+    in the list.&lt;/p&gt;
+    
+    &lt;button onclick="myFunction()"&gt;Try it&lt;/button&gt;
+    
+    &lt;p id="demo"&gt;&lt;/p&gt;
+    
+    &lt;script&gt;
+    function myFunction(){
+        var x = document.getElementById("myLI").parentElement.nodeName;
+        document.getElementById("demo").innerHTML = x;
+        }
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample20 -->        
+            
+            <!-- sample21 -->
+            <div id="sample21" class="sample">
+                <h3>021. 요소 메서드 : Element.insertAdjacentHTML() : 요소 추가</h3>
+                <div class="view">
+                    <p>부모 요소 교체</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;h1&gt;The Element Object&lt;/h1&gt;
+    &lt;h2&gt;The insertAdjacentHTML() Method&lt;/h2&gt;
+    
+    &lt;button onclick="myFunction()"&gt;Insert&lt;/button&gt;
+    &lt;p&gt;Click "Insert" to insert a paragraph after the header.&lt;/p&gt;
+    
+    &lt;h2 id="myH2"&gt;My Header&lt;/h2&gt;
+    
+    &lt;script&gt;
+    function myFunction(){
+        const h2 = document.getElementById("myH2");
+        let html = "<p>My new paragraph. </p>";
+        h2.insertAdjacentHTML("afterend", html);
+        }
+        
+        // afterend : after the element
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample21 -->   
+            
+            <!-- sample22 -->
+            <div id="sample22" class="sample">
+                <h3>022. 요소 메서드 : Element.before() : 요소 앞에 추가</h3>
+                <div class="view">
+                    <p>요소 앞에 추가</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;script&gt;
+    //Inserting an element
+    let container = document.createElement("div");
+    let p = document.createElement("p");
+    container.appendChild(p);
+    let span = document.createElement("span");
+    
+    p.before(span);
+    
+    console.log(container.outerHTML);
+    //"&lt;div&gt;&lt;span&gt;&lt;/span&gt;&lt;p&gt;&lt;/p&gt;&lt;/div&gt;"
+
+    //Inserting text
+
+    let container = document.createElement("div");
+    let p = document.createElement("p");
+    container.appendChild(p);
+    
+    p.before("Text");
+    
+    console.log(container.outerHTML);
+    // "&lt;div&gt;Text&lt;p&gt;&lt;/p&gt;&lt;/div&gt;"
+    
+    //Inserting an element and text
+
+    let container = document.createElement("div");
+    let p = document.createElement("p");
+    container.appendChild(p);
+    let span = document.createElement("span");
+    
+    p.before(span, "Text");
+    
+    console.log(container.outerHTML);
+    //"&lt;div&gt;&lt;span&gt;&lt;/span&gt;Text&lt;p&gt;&lt;/p&gt;&lt;/div&gt;"    
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample22 -->  
+            
+            <!-- sample23 -->
+            <div id="sample23" class="sample">
+                <h3>023. 요소 메서드 : Element.after() : 요소 뒤에 추가</h3>
+                <div class="view">
+                    <p>요소 뒤에 추가</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;script&gt;
+    //Inserting an element
+    let container = document.createElement("div");
+    let p = document.createElement("p");
+    container.appendChild(p);
+    let span = document.createElement("span");
+    
+    p.after(span);
+    
+    console.log(container.outerHTML);
+    //"&lt;div&gt;&lt;p&gt;&lt;/p&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;"
+
+    //Inserting text
+    let container = document.createElement("div");
+    let p = document.createElement("p");
+    container.appendChild(p);
+    
+    p.after("Text");
+    
+    console.log(container.outerHTML);
+    // "&lt;div&gt;&lt;p&gt;&lt;/p&gt;Text&lt;/div&gt;"
+    
+    //Inserting an element and text
+
+    let container = document.createElement("div");
+    let p = document.createElement("p");
+    container.appendChild(p);
+    let span = document.createElement("span");
+    p.after(span, "Text");
+    
+    console.log(container.outerHTML);
+    //"&lt;div&gt;&lt;p&gt;&lt;/p&gt;&lt;span&gt;&lt;/span&gt;Text&lt;/div&gt;"    
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample23 -->         
+            
+            <!-- sample24 -->
+            <div id="sample24" class="sample">
+                <h3>024. 요소 메서드 : Element.remove() : 요소 삭제</h3>
+                <div class="view">
+                    <p>요소 삭제</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;h1&gt;The Element Object&lt;/h1&gt;
+    &lt;h2&gt;The remove() Method&lt;/h2&gt;
+    
+    &lt;p id="demo"&gt;Click "Remove", and this paragraph will be removed from the DOM.&lt;/p&gt;
+    &lt;button onclick="myFunction()"&gt;Remove&lt;/button&gt;
+    
+    &lt;script&gt;
+    function myFunctono(){const element = document.getElementById("demo");
+    element.remove(); }
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample24 -->     
+            
+            <!-- sample25 -->
+            <div id="sample25" class="sample">
+                <h3>025. 요소 메서드 : Element.replaceWith() : 요소 교체</h3>
+                <div class="view">
+                    <p>요소 교체</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    const div = document.createElement("div");
+    const p = document.createElement("p");
+    div.appendChild(p);
+    const span = document.createElement("span");
+    
+    p.replaceWith(span);
+    
+    console.log(div.outerHTML);
+    //"&lt;div&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;"
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample25 -->            
+            
+            <!-- sample26 -->
+            <div id="sample26" class="sample">
+                <h3>026. 요소 메서드 : 클래스 : .classList.add() : 클래스 추가하기</h3>
+                <div class="view">
+                    <p>클래스 추가</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+        &lt;style&gt;
+        .myStyle {
+          background-color: coral;
+          padding: 16px;
+        }
+        &lt;/style&gt;
+        
+        &lt;body&gt;
+        &lt;h1&gt;The DOMToken Object&lt;/h1&gt;
+        &lt;h2&gt;The add() Method&lt;/h2&gt;
+        
+        &lt;button onclick="myFunction()"&gt;Add&lt;/button&gt;
+        &lt;p&gt;Click "Add" to add the "myStyle" class to myDIV.&lt;/p&gt;
+        
+        &lt;div id="myDIV"&gt;
+        &lt;p&gt;I am a myDIV.&lt;/p&gt;
+        &lt;/div&gt;
+    
+    &lt;script&gt;
+    function myFunction() {
+        const list = document.getElementById("myDIV").classList;
+        list.add("myStyle");
+      }
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample26 -->     
+            
+            <!-- sample27 -->
+            <div id="sample27" class="sample">
+                <h3>027. 요소 메서드 : 클래스 : .classList.remove() : 클래스 삭제하기</h3>
+                <div class="view">
+                    <p>클래스 삭제</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+        &lt;style&gt;
+        .myStyle {
+          background-color: coral;
+          padding:16px;
+        }
+        &lt;/style&gt;
+        
+        &lt;body&gt;
+        &lt;h1&gt;The DOMToken Object&lt;/h1&gt;
+        &lt;h2&gt;The remove() Method&lt;/h2&gt;
+        
+        &lt;button onclick="myFunction()"&gt;Remove&lt;/button&gt;
+        &lt;p&gt;Click "Remove" to remove the "myStyle" class from myDIV.&lt;/p&gt;
+        
+        &lt;div id="myDIV" class="myStyle"&gt;
+        &lt;p&gt;I am myDIV.&lt;/p&gt;
+        &lt;/div&gt;
+    
+    &lt;script&gt;
+    function myFunction() {
+        document.getElementById("myDIV").classList.remove("myStyle");
+      }
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample27 -->   
+            
+            <!-- sample28 -->
+            <div id="sample28" class="sample">
+                <h3>028. 요소 메서드 : 클래스 : .classList.toggle() : 클래스 추가/삭제하기</h3>
+                <div class="view">
+                    <p>클래스 추가/삭제</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+        &lt;style&gt;
+        .myStyle{background-color : coral;
+        padding : 16px;}
+        &lt;/style&gt;
+        
+        &lt;body&gt;
+        &lt;h1&gt;The DOMToken Object&lt;/h1&gt;
+        &lt;h2&gt;The toggle() Method&lt;/h2&gt;
+        
+        &lt;button onclick="myFunction()"&gt;Toggle&lt;/button&gt;
+        &lt;p&gt;Click "Toggle" to toggle "myStyle" on and off.&lt;/p&gt;
+        
+        &lt;div id="myDIV"&gt;
+        &lt;p&gt;I am myDIV.&lt;/p&gt;
+        &lt;/div&gt;
+        
+        &lt;script&gt;
+        function myFunction(){
+        document.getElementById("myDIV").classList.toggle("myStyle");}
+        &lt;/script&gt;
+        
+        &lt;/body&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample28 -->        
+            
+            <!-- sample29 -->
+            <div id="sample29" class="sample">
+                <h3>029. 요소 메서드 : 클래스 : .classList.contains() : 클래스 존재 여부 확인하기</h3>
+                <div class="view">
+                    <p>클래스 존재 여부 확인</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+        &lt;span class="a b c"&gt;&lt;/span&gt;
+        
+        var span = document.querySelector("span");
+        var classes = span.classList;
+        var result = classes.contains("c");
+        if(result) {
+          span.textContent = "The classList contains 'c'";
+        } else {
+           span.textContent = "The classList does not contain 'c'";
+        }
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample29 -->  
+            
+            <!-- sample30 -->
+            <div id="sample30" class="sample">
+                <h3>030. 요소 메서드 : 속성 : .setAttribute() : 요소 속성 설정하기</h3>
+                <div class="view">
+                    <p>구문 element.setAttribute(’attributename’, ‘attributevalue’)</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+        &lt;style&gt;
+        .democlass {
+          color: red;
+        }
+        &lt;/style&gt;
+        
+        &lt;body&gt;
+        &lt;h1 id="myH1"&gt;The Element Object&lt;/h1&gt;
+        &lt;h2&gt;The setAttribute() Method&lt;/h2&gt;
+        
+        &lt;p&gt;Click "Add Class" to add a class attribute to the h1 element:&lt;/p&gt;
+        
+        &lt;button onclick="myFunction()"&gt;Add Class&lt;/button&gt;
+        
+        &lt;script&gt;
+        function myFunction() {
+          document.getElementById("myH1").setAttribute("class", "democlass"); 
+        }
+        &lt;/script&gt;
+        
+        &lt;/body&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample30 -->      
+            
+            <!-- sample31 -->
+            <div id="sample31" class="sample">
+                <h3>31. 요소 메서드 : 속성 : .getAttribute() : 요소 속성 가져오기</h3>
+                <div class="view">
+                    <p>구문 element.getAttribute(’attributename’)</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;h1 id="myH1" class="democlass"&gt;The Element Object&lt;/h1&gt;
+    &lt;h2&gt;The getAttribute() Method&lt;/h2&gt;
+    
+    &lt;p&gt;The value of the class attribute of the h1 element is:&lt;/p&gt;
+    
+    &lt;p id="demo"&gt;&lt;/p&gt;
+    
+    
+    &lt;script&gt;
+    const element = document.getElementById("myH1");
+    let text = element.getAttribute("class");
+    document.getElementById("demo").innerHTML = text;
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample31 -->        
+            
+            <!-- sample32 -->
+            <div id="sample32" class="sample">
+                <h3>32. 요소 메서드 : 속성 : .hasAttribute() : 요소 속성 존재 여부 확인하기</h3>
+                <div class="view">
+                    <p>요소 속성 존재 여부 확인</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;h3&gt;Click to image&lt;/h3&gt;
+    &lt;img id="rose" src="http://resrc.devdic.com/img/bykind/alpha/150x135_flower.png" title="Yellow rose" /&gt;
+    &lt;script&gt;
+    window.addEventListener("load", ()=&gt;{
+    const imgRose = document.querySelector("#rose");
+    imgRose.onclick = e =&gt;{
+    const elTarget = e.target;
+    
+    if(elTarget.hasAttribute("title")){
+    elTarget.after(elTarget.title);
+        }
+    };
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample32 -->   
+            
+            <!-- sample33 -->
+            <div id="sample33" class="sample">
+                <h3>33. 요소 메서드 : 텍스트 : .textContent() : 요소에 텍스트 설정하기</h3>
+                <div class="view">
+                    <p>요소에 텍스트 설정</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;h1&gt;The Element Object&lt;/h1&gt;
+    &lt;h2&gt;The textContent Property&lt;/h2&gt;
+    
+    &lt;button id="myBtn"&gt;Try it&lt;/button&gt;
+    
+    &lt;p&gt;The text content of the button is:&lt;/p&gt;
+    &lt;p id="demo"&gt;&lt;/p&gt;
+    
+    &lt;script&gt;
+    let text = document.getElementById("myBtn").textContent;
+    document.getElementById("demo").innerHTML = text;
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample33 -->     
+            
+            <!-- sample34 -->
+            <div id="sample34" class="sample">
+                <h3>34. 요소 메서드 : 텍스트 : .innerText() : 요소에 텍스트 설정하기</h3>
+                <div class="view">
+                    <p>요소에 텍스트 설정</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;h1&gt;The Element Object&lt;/h1&gt;
+    &lt;h2&gt;The innerHTML Property&lt;/h2&gt;
+    
+    &lt;p id="myP"&gt;I am a paragraph.&lt;/p&gt;
+    
+    &lt;p&gt;The content of "myP" is:&lt;/p&gt;
+    &lt;p id="demo"&gt;&lt;/p&gt;
+    
+    &lt;script&gt;
+    let html = document.getElementById("myP").innerHTML;
+    document.getElementById("demo").innerHTML = html;
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample34 -->  
+            
+            <!-- sample35 -->
+            <div id="sample35" class="sample">
+                <h3>35. 요소 메서드 : 텍스트 : .innerHTML() : 요소에 HTML 텍스트 설정하기</h3>
+                <div class="view">
+                    <p>요소에 HTML 텍스트 설정</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;h1&gt;The Element Object&lt;/h1&gt;
+    &lt;h2&gt;The outerHTML Property&lt;/h2&gt;
+    
+    &lt;p&gt;Click "Change" to change the first h2 header to a h3.&lt;/p&gt;
+    
+    &lt;button onclick="myFunction()"&gt;Change&lt;/button&gt;
+    
+    &lt;script&gt;
+    function myFunction(){
+    const element = document.getElementsByTagName("h2")[0];
+    element.outerHTML = "&lt;h3&gt;You changed me and my content!&lt;h3&gt;";}
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample35 -->    
+            
+            <!-- sample36 -->
+            <div id="sample36" class="sample">
+                <h3>36. 요소 메서드 : 텍스트 : .outerHTML() : 요소에 HTML 텍스트 설정하기</h3>
+                <div class="view">
+                    <p>요소에 HTML 텍스트 설정</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+    &lt;h1&gt;The Element Object&lt;/h1&gt;
+    &lt;h2&gt;The outerHTML Property&lt;/h2&gt;
+    
+    &lt;p&gt;Click "Change" to change the first h2 header to a h3.&lt;/p&gt;
+    
+    &lt;button onclick="myFunction()"&gt;Change&lt;/button&gt;
+    
+    &lt;script&gt;
+    
+    function myFunction(){
+    const element = document.getElementsByTagName("h2")[0];
+    element.outerHTML = "&lt;h3&gt;You changed me and my content!&lt;h3&gt;";}
+    
+    &lt;/script&gt;
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample36 -->     
+            
+            <!-- sample37 -->
+            <div id="sample37" class="sample">
+                <h3>37. innerHTML vs outerHTML vs textContent</h3>
+                <div class="view">
+                    <p>innerHTML = 선택된 요소 / outerHTMl = 선택된 요소 + 선택된 요소의 HTML</p>
+                </div>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">{
+        &lt;div id="element"&gt;
+            &lt;p&gt;Hello world&lt;/p&gt;
+        &lt;/div&gt;
+
+        //innerHTML
+        Hello world
+        
+        //outerHTML
+        &lt;div id="element"&gt;
+            &lt;p&gt;Hello world&lt;/p&gt;
+        &lt;/div&gt;        
+}</code></pre>
+                </div>
+            </div>
+            <!-- //sample37 -->            
+
+        </div>
+        <!-- //script -->
+    </main>
+    <!-- script -->
+    <script>
+        //#id 이동하기
+        document.querySelectorAll("a[href^='#']").forEach(el => {
+            el.addEventListener("click", (event) => {
+                event.preventDefault();
+                document.querySelector(el.getAttribute("href")).scrollIntoView({
+                    behavior: "smooth"
+                })
+            });
+        });
+
+        //sample01
+        {
+            //두번째 이미지 선택
+        document.querySelector("#sample1 .btn1").addEventListener("click", function(){
+            document.querySelector("#sample1 .view2").classList.add("selected");
+        });
+        document.querySelector("#sample1 .btn2").addEventListener("click", function(){
+            document.querySelector("#sample1 .view2").classList.remove("selected");
+        });
+
+        //모든 이미지 선택
+        document.querySelector("#sample1 .btn3").addEventListener("click", function(){
+            document.querySelectorAll("#sample1 .view > div").forEach(function(el){
+                el.classList.add("selected");
+            });
+        });
+        document.querySelector("#sample1 .btn4").addEventListener("click", function(){
+            document.querySelectorAll("#sample1 .view > div").forEach(function(el){
+                el.classList.remove("selected");
+            });
+        });
+        }
+
+
+        //sample02
+        {
+            //리셋
+            document.querySelector("#sample2 .btn0").addEventListener("click", function(){
+                document.querySelectorAll("#sample2 .view > div").forEach(function(el){
+                    el.classList.remove("selected");
+                });
+            });
+
+            //두번째 이미지 선택
+            document.querySelector("#sample2 .btn1").addEventListener("click", function(){
+                document.querySelector("#sample2 .view2").classList.toggle("selected");
+            });
+
+            //모든 이미지 선택
+            document.querySelector("#sample2 .btn2").addEventListener("click", function(){
+                document.querySelectorAll("#sample2 .view > div").forEach(function(el){
+                    el.classList.toggle("selected");
+                });
+            });
+
+            //각각의 이미지를 클릭하면 각각의 이미지를 선택 또는 해제
+            document.querySelectorAll("#sample2 .view > div").forEach(function(el){
+                el.addEventListener("click", function(){
+                    el.classList.toggle("selected");
+                });
+            });
+        }
+
+        //sample03
+        {
+            //리셋
+            document.querySelector("#sample3 .btn0").addEventListener("click", function(){
+                document.querySelectorAll("sample3 .view > div").forEach(function(el){
+                    el.classList.remove("selected", "blue");
+                });
+                document.querySelector("#sample3 .view2").classList.add("selected");
+                document.querySelector("#sample3 .view2").classList.remove("blue");
+                document.querySelector("#sample3 .view4").classList.add("selected");
+                document.querySelector("#sample3 .view4").classList.remove("blue");
+                document.querySelector("#sample3 .view6").classList.add("selected");
+                document.querySelector("#sample3 .view6").classList.remove("blue");
+            });
+
+            //이 버튼을 클릭(selected)하면 선택된 클래스(selected)를 찾은 후 클래스를 삭제합니다.
+            document.querySelector("#sample3 .btn1").addEventListener("click", function(){
+                document.querySelectorAll("#sample3 .view > div").forEach(function(el){
+                    if(el.classList.contains("selected")){
+                        el.classList.remove("selected");
+                        if(el.classList.contains("blue")){
+                            el.classList.remove("blue");
+                        }
+                    }
+                });
+            });
+
+            //이 버튼을 클릭(selected)하면 선택된 클래스(selected)를 찾은 후 색을 파란색으로 나오게 하세요!
+            document.querySelector("#sample3 .btn2").addEventListener("click", function(){
+                document.querySelectorAll("#sample3 .view > div").forEach(function(el){
+                    if(el.classList.contains("selected")){
+                        el.classList.add("blue");
+                    }
+                });
+            });
+            // document.querySelector("#sample3 .btn2").addEventListener("click", function(){
+            //     document.querySelectorAll("#sample3 .view > div").forEach(function(el){
+            //         if(el.classList.contains("selected")){
+            //             el.classList.add("blue");
+            //         }
+            //     });
+            // });
+        }
+    </script>
+</body>
+</html>
